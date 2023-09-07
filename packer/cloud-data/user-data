@@ -1,0 +1,14 @@
+#cloud-config
+ssh_pwauth: true
+users:
+  - name: packer
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    passwd: $6$rounds=4096$XxQGokSw4FI8unZF$lAnQ0ZSMuCvSlv.rFjcxOpyAZr/ZDwtaI/X6BSSH0wtKngvprmgr9nvSMV/dBzE.TJ7Tvd8y0.T50dW5Bi1vf/
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDZmYGY8xoN4t/CLHvUS809kFmuSNh9p3VX4/JqXPHgJKoj7rC7OdmDwyEr7/zDl/497JXSH/inzhgwZtCQ/g8CaRabbNH91grtGwNhcR3O+r4O3rtVsi7wayF0qpgfNWvWvtVWHzQT1iOxfTDPhTiXl50aRYckL/uw9xnebilMEbnxIBK16EVaR76P/Uzi8g1vh0a0pPfQQ0icHUFXfdOd0KSa+be1NXvVV1ucvF/FmyvDzSMvDk3aNwC5kGLlSC2Lv2RaukrVjOxCEBe4BcWvsEJxz0zG5LmhrzPmAlxU0x55aZhJzQvyT60MR3CE5iBsSS1Y+GwPcGn9A5zBALYYt2Vmlt3eboP6Qia+1ecauegPuDi+cWgJMqDu0w2vV4Du0+FxfON6u4r9tGRXYH9Yw9CMjBX7psgDFSh7SNjTKNTBk0ba80KxczIzxinpYujInQFVf9MTCicz+NDEpp6YF7w7Sop8PTpx2YhUjQj6qyH0SH//7qvW6xYo36Deaz33mSPwEtmysHmJdL6GNvunRUYeRqEjesOj8MOyUE5T2Gn2mljAM0UPQyDXW5v8sPzG84UZCv98bbfeQ976dFKKAUZFfy7YGIEvXjL4hnOtLfINfJRxa7jV6otm3PA9C+SF7CQLxH0Lh0vpUmHPP+1dvWfmkC2wfUMqo8Xta0gIAQ== your_email@example.com
+    lock_passwd: false
+apt:
+    preserve_sources_list: true
+package_update: false
+

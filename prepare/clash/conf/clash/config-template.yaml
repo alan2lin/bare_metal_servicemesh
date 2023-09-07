@@ -1,0 +1,29 @@
+port: 7890
+socks-port: 7891
+#转发端口一定要配置
+redir-port: 7892
+#允许接管局域网流量
+allow-lan: true
+#默认代理模式
+mode: Rule
+log-level: warning
+#接口控制端口你可以自己设置，默认是9090
+external-controller: 0.0.0.0:9090
+#如果服务器对公网开放可以设置密码
+secret: ""
+#external-ui: dashboard
+#配置由clash接管的dns解析
+dns:
+  enable: true
+#主要监听定向转发来的数据，后续会在路由表里配置转发端口为1053
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+#见下方链接
+  nameserver:
+    - '114.114.114.114'
+    - '223.5.5.5'
+  fallback:
+    - 'tls://1.1.1.1:853'
+    - 'tcp://1.1.1.1:53'
+    - 'tcp://208.67.222.222:443'
+    - 'tls://dns.google'
