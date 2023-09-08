@@ -21,6 +21,7 @@
     ----------运维.林
 
 
+
 ## 背景知识简单介绍
  在开始之前有必要从很高的抽象层面去我们要搭建的目标到底是什么样的，官方的图片太过于抽象，我找了比较具体一点的架构图。   
 高级抽象图   
@@ -54,11 +55,10 @@ k8s的流量流图
   - 简单自动化脚本
   - 虚拟机镜像
 * k8s 集群初始化
-* istio安装
-* demo部署
+* istio安装 && demo部署
 * 观测套件安装和使用
 * istio特性展示
-
+----------    
 #### 主机环境设置
 1. 查看宿主主机所使用的网卡，确定地址，我用的是无线网卡。
 ```
@@ -129,6 +129,11 @@ multipass launch -c 4 -m 8G --disk 23G -n w01 lunar
 cd bare_metal_servicemesh/packer
 packer build template.json | tee packer_build.log
 ```
+关于构建好的虚拟机镜像，我也上传了一份到 百度网盘，可以下载到 bare_metal_servicemesh/packer/output-qemu目录 名字更改为 packer-qemu
+```
+链接：https://pan.baidu.com/s/1UHLIIjWF6LiBovSorKjZIA?pwd=k8si 
+提取码：k8si
+```   
 使用自定义镜像来创建虚拟机。
 ```
 cd sh installation/0_node_init/packer/create_vm.sh
@@ -142,11 +147,13 @@ multipass list
 ```
 sudo apt install packer qemu-kvm
 ```
-7. 下载本教程仓库到 ~
+7. 下载本教程仓库到 当前用户目录下  ~
 ```
-git clone 
+git clone https://github.com/alan2lin/bare_metal_servicemesh.git
 ```
-### 初始化节点
+
+----------    
+#### 初始化节点
 当一个新的物理节点加入进来的时候，需要在其上安装必要的安装包，容器运行时和k8s的组件。
 
 ##### 选择一: 逐条执行脚本
@@ -280,13 +287,185 @@ sudo NEEDRESTART_MODE=a apt-mark hold kubelet kubeadm kubectl
 ##### 选择二: 执行脚本
 确保已经在虚拟机内，比如在m01内。
 ```
-cd /bms
-sh installation/1_node_init/script/node_init.sh
+sh /bms/installation/1_node_init/script/node_init.sh
 
 ```
 
 ##### 选择三: 以自定义的镜像来创建镜像，什么都不用做
 因为所有的工作都在创建镜像的时候做了。
 
+#### k8s 集群初始化
+##### 选择一: 逐条执行脚本
+
+* 先修正一个bug后面才可能出现的bug.   
+大约是启用 反向路径过滤器，哪些不能互通的请求会被iptable过滤掉。
+```
+# https://github.com/projectcalico/calico/issues/2042  
+cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+##The following two settings solve the issue.I tried to comment it out and the issue reappeared.
+net.ipv4.conf.default.rp_filter=1
+net.ipv4.conf.all.rp_filter=1
+EOF
+
+sudo sysctl --system
+```
+* 初始化master节点
+```
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --cri-socket=unix:///var/run/cri-dockerd.sock --v=5
+```
+* 加入其他工作节点   
+逐一登录其他节点 执行这个命令打出来的 join语句 ，记得带上  --cri-socket=unix:///var/run/cri-dockerd.sock --v=5
+```
+# 如果在m01中，则先 exit 
+multipass shell w01
+
+sudo kubeadm join 10.199.97.12:6443 --token xxx --discovery-token-ca-cert-hash sha256:yyy  --cri-socket=unix:///var/run/cri-dockerd.sock --v=5 
+exit
+multipass shell w02
+
+sudo kubeadm join 10.199.97.12:6443 --token xxx --discovery-token-ca-cert-hash sha256:yyy  --cri-socket=unix:///var/run/cri-dockerd.sock --v=5 
+exit
+```
+* 设置 kubectl的配置文件
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+```
+
+* 在master节点上安装插件
+```
+# https://docs.tigera.io/calico/latest/getting-started/kubernetes/self-managed-onprem/onpremises
+# curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico-typha.yaml -o calico.yaml
+kubectl  create -f /bms/data/k8s_addons/calico/calico.yaml
+```
+* 一些可能会用到的命令
+```
+# kubectl get events --sort-by=.metadata.creationTimestamp -A --watch
+# kubectl get nodes -o wide
+# kubeadm token create --print-join-command
+```
+##### 选择二: 执行脚本
+* 执行脚本初始化master
+```
+sh /bms/installation/2_k8s_init/k8s_master_init.sh
+```
+
+* 加入其他的工作节点     
+逐一登录其他节点 执行这个命令打出来的 join语句 ，记得带上  --cri-socket=unix:///var/run/cri-dockerd.sock --v=5
+```
+# 如果在m01中，则先 exit 
+multipass shell w01
+
+sudo kubeadm join 10.199.97.12:6443 --token xxx --discovery-token-ca-cert-hash sha256:yyy  --cri-socket=unix:///var/run/cri-dockerd.sock --v=5 
+exit
+multipass shell w02
+
+sudo kubeadm join 10.199.97.12:6443 --token xxx --discovery-token-ca-cert-hash sha256:yyy  --cri-socket=unix:///var/run/cri-dockerd.sock --v=5 
+exit
+```
+##### 通过helm 安装 metrics-server 
+这个应用可以让你用top node, top pod 来查看他们的cpu和内存负载等信息。
+```
+# 安装 Metrics Server is a scalable, efficient source of container resource metrics for Kubernetes built-in autoscaling pipelines.
+# https://artifacthub.io/packages/helm/metrics-server/metrics-server
+
+helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/ 
+helm upgrade --install metrics-server metrics-server/metrics-server --set args="{--kubelet-insecure-tls}"  
+# kubectl top node 
+# kubectl top pods
+``` 
+
+##### 安装 安装负载均衡器 metallb
+如果是在云平台，一般都会提供一个外部负载均衡器。 这样就可以通过集群外的ip来访问应用了。 我们采用metallb
+
+```
+# 安装负载均衡器
+# https://metallb.universe.tf/installation/
+  
+# see what changes would be made, returns nonzero returncode if different
+kubectl get configmap kube-proxy -n kube-system -o yaml | \
+sed -e "s/strictARP: false/strictARP: true/" | \
+kubectl diff -f - -n kube-system
+
+# actually apply the changes, returns nonzero returncode on errors only
+kubectl get configmap kube-proxy -n kube-system -o yaml | \
+sed -e "s/strictARP: false/strictARP: true/" | \
+kubectl apply -f - -n kube-system
+
+  
+kubectl  apply -f /bms/data/metallb_install/metallb-0.13.10/config/manifests/metallb-native.yaml
+kubectl  apply -f /bms/data/metallb_install/metallb-0.13.10/config/manifests/metallb-frr.yaml
+# 修改该文件，增加node节点的 ip地址范围
+kubectl  apply -f /bms/data/metallb_install/metallb-0.13.10/configsamples/ipaddresspool_simple.yaml
+
+kubectl  apply -f /bms/data/metallb_install/nginx-deployment.yaml
+kubectl expose deployment nginx-deployment --port 80 --type LoadBalancer 	
+# 检查和校验的
+```
+----------    
+
+#### istio安装
+##### 
+
+* 安装istio 及demo 
+```
+# https://istio.io/latest/docs/setup/getting-started/
+# mkdir /bms/data/istio_install/ 
+# cd /bms/data/istio_install/
+# wget https://github.com/istio/istio/releases/download/1.19.0/istio-1.19.0-linux-arm64.tar.gz  
+# tar -xzvf istio-1.19.0-linux-arm64.tar.gz
+cd /bms/data/istio_install/istio-1.19.0
+
+./bin/istioctl install --set profile=demo -y
+kubectl get ns --show-lables
+kubectl label namespace default istio-injection=enabled
+
+
+
+```
+* 安装 bookinfo应用
+```
+kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+```
+* 添加一个pv
+```
+mkdir -p /mnt/data/
+cat <<EOF |tee /bms/data/istio_install/pv-volume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: task-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 12Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+EOF
+```
+* 安装 istio插件
+```
+# 修改 loki.yaml 
+#spec.template.spec.securityContext:
+#    fsGroup: 0 #10001
+#	runAsNonRoot: false #true
+#	runAsUser: 0 #10001
+#	
+#spec.template.volumeClaimTemplates.kkstorageClassName: manual
+
+kubectl apply -f samples/addons
+
+ 
+```
 
 
