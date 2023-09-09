@@ -131,7 +131,7 @@ packer build template.json | tee packer_build.log
 ```
 关于构建好的虚拟机镜像，我也上传了一份到 百度网盘，可以下载到 bare_metal_servicemesh/packer/output-qemu目录 名字更改为 packer-qemu
 ```
-链接：https://pan.baidu.com/s/1UHLIIjWF6LiBovSorKjZIA?pwd=k8si 
+链接：https://pan.baidu.com/s/1Ny2aJUsQMuejOg39pEkwkQ?pwd=k8si 
 提取码：k8si
 ```   
 使用自定义镜像来创建虚拟机。
