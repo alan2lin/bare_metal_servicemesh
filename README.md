@@ -55,8 +55,8 @@ k8s的流量流图
   - 简单自动化脚本
   - 虚拟机镜像
 * k8s 集群初始化
-* istio安装 && demo部署
-* 观测套件安装和使用
+* istio安装 && demo部署 &&  观测套件安装
+* 观测套件使用
 * istio特性展示
 ----------    
 #### 主机环境设置
@@ -245,7 +245,7 @@ cat /sys/fs/cgroup/cgroup.controllers
 
 ## https://github.com/Mirantis/cri-dockerd
 sudo add-apt-repository -y ppa:longsleep/golang-backports
-sudo NEEDRESTART_MODE=a snap install go  --classic
+sudo NEEDRESTART_MODE=a snap install yq go  --classic
 
 ## git clone https://github.com/Mirantis/cri-dockerd.git
 cd ${BASEDIR}/data
@@ -410,23 +410,22 @@ kubectl expose deployment nginx-deployment --port 80 --type LoadBalancer
 ```
 ----------    
 
-#### istio安装
-##### 
+#### istio安装 && demo部署 &&  观测套件安装
+
 
 * 安装istio 及demo 
 ```
 # https://istio.io/latest/docs/setup/getting-started/
 # mkdir /bms/data/istio_install/ 
-# cd /bms/data/istio_install/
+cd /bms/data/istio_install/
 # wget https://github.com/istio/istio/releases/download/1.19.0/istio-1.19.0-linux-arm64.tar.gz  
-# tar -xzvf istio-1.19.0-linux-arm64.tar.gz
+ rm -rf istio-1.19.0
+tar -xzvf istio-1.19.0-linux-arm64.tar.gz
 cd /bms/data/istio_install/istio-1.19.0
 
 ./bin/istioctl install --set profile=demo -y
 kubectl get ns --show-lables
 kubectl label namespace default istio-injection=enabled
-
-
 
 ```
 * 安装 bookinfo应用
@@ -452,20 +451,59 @@ spec:
   hostPath:
     path: "/mnt/data"
 EOF
+
+kubectl apply -f /bms/data/istio_install/pv-volume.yaml
 ```
 * 安装 istio插件
 ```
 # 修改 loki.yaml 
+
 #spec.template.spec.securityContext:
 #    fsGroup: 0 #10001
 #	runAsNonRoot: false #true
 #	runAsUser: 0 #10001
 #	
-#spec.template.volumeClaimTemplates.kkstorageClassName: manual
+#spec.template.volumeClaimTemplates.storageClassName: manual
 
-kubectl apply -f samples/addons
+sudo yq -i 'spec.template.spec.securityContext.fsGroup=0 | spec.template.spec.securityContext.runAsNonRoot=false |  spec.template.spec.securityContext.runAsUser=0 | spec.template.volumeClaimTemplates.storageClassName="manual"'   samples/addons/loki.yaml
 
- 
+# sed -in-place -e "s/fsGroup: 10001/fsGroup: 0 #10001/;s/runAsNonRoot: true/runAsNonRoot: false #true/;s/runAsUser: 10001/runAsUser: 0 #10001" samples/addons/loki.yaml
+
+
+kubectl apply -f samples/addons 
+kubectl rollout status deployment/kiali -n istio-system
+```
+* 查看
+```
+kubectl get svc istio-ingressgateway -n istio-system
+
+export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].port}')
+export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].port}')
+
+export GATEWAY_URL=$INGRESS_HOST:$INGRESS_PORT
+echo "$GATEWAY_URL"
+echo "http://$GATEWAY_URL/productpage"
+
+
+
+```
+#### 观测套件使用
+##### 
+* 观测套件的使用之一 --- loki     
+先收集数据
+```
+for i in $(seq 1 100); do curl -s -o /dev/null "http://$GATEWAY_URL/productpage"; done
+```
+暴露服务
 ```
 
+```
+在master节点的host上 安装一个配置方向代理服务
+```
+cat /bare_metal_servicemesh/node_proxy/my-proxy.conf
+
+sh cat /bare_metal_servicemesh/node_proxy/nginx.sh
+```
+打开浏览器
 

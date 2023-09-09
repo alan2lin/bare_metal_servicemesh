@@ -1,0 +1,1869 @@
+[1;32mqemu: output will be in this color.[0m
+
+[1;32m==> qemu: Retrieving ISO[0m
+[1;32m==> qemu: Trying http://cloud-images.ubuntu.com/releases/lunar/release/ubuntu-23.04-server-cloudimg-amd64.img[0m
+[1;32m==> qemu: Trying http://cloud-images.ubuntu.com/releases/lunar/release/ubuntu-23.04-server-cloudimg-amd64.img?checksum=sha256%3Ab79d654a4f4cee3691fbbda2ef4896b5bbadae40c60a0763c5ddfce6b21eff4f[0m
+[1;32m==> qemu: http://cloud-images.ubuntu.com/releases/lunar/release/ubuntu-23.04-server-cloudimg-amd64.img?checksum=sha256%3Ab79d654a4f4cee3691fbbda2ef4896b5bbadae40c60a0763c5ddfce6b21eff4f => /home/alan/packer/packer_cache/f2a5aaf48f713f8afa7f487090ec79dc5671eaa0.iso[0m
+[1;32m==> qemu: Copying hard drive...[0m
+[1;32m==> qemu: Resizing hard drive...[0m
+[1;32m==> qemu: Starting HTTP server on port 8867[0m
+[1;32m==> qemu: Found port for communicator (SSH, WinRM, etc): 3335.[0m
+[1;32m==> qemu: Looking for available port between 5900 and 6000 on 127.0.0.1[0m
+[1;32m==> qemu: Starting VM, booting disk image[0m
+[1;32m==> qemu: Overriding default Qemu arguments with qemuargs template option...[0m
+[1;32m==> qemu: Waiting 10s for boot...[0m
+[1;32m==> qemu: Connecting to VM via VNC (127.0.0.1:5987)[0m
+[1;32m==> qemu: Typing the boot command over VNC...[0m
+[0;32m    qemu: Not using a NetBridge -- skipping StepWaitGuestAddress[0m
+[1;32m==> qemu: Using ssh communicator to connect: 127.0.0.1[0m
+[1;32m==> qemu: Waiting for SSH to become available...[0m
+[1;32m==> qemu: Connected to SSH![0m
+[1;32m==> qemu: Provisioning with shell script: /tmp/packer-shell4272197970[0m
+[0;32m    qemu: ======= step 1. Prepare packages[0m
+[0;32m    qemu: Hit:1 http://archive.ubuntu.com/ubuntu lunar InRelease[0m
+[0;32m    qemu: Get:2 http://archive.ubuntu.com/ubuntu lunar-updates InRelease [109 kB][0m
+[0;32m    qemu: Get:3 http://archive.ubuntu.com/ubuntu lunar-backports InRelease [99.8 kB][0m
+[0;32m    qemu: Get:4 http://security.ubuntu.com/ubuntu lunar-security InRelease [109 kB][0m
+[0;32m    qemu: Get:5 http://archive.ubuntu.com/ubuntu lunar/universe amd64 Packages [15.0 MB][0m
+[0;32m    qemu: Get:6 http://security.ubuntu.com/ubuntu lunar-security/main amd64 Packages [316 kB][0m
+[0;32m    qemu: Get:7 http://security.ubuntu.com/ubuntu lunar-security/main Translation-en [72.7 kB][0m
+[0;32m    qemu: Get:8 http://security.ubuntu.com/ubuntu lunar-security/main amd64 c-n-f Metadata [5356 B][0m
+[0;32m    qemu: Get:9 http://security.ubuntu.com/ubuntu lunar-security/restricted amd64 Packages [331 kB][0m
+[0;32m    qemu: Get:10 http://security.ubuntu.com/ubuntu lunar-security/restricted Translation-en [53.9 kB][0m
+[0;32m    qemu: Get:11 http://security.ubuntu.com/ubuntu lunar-security/universe amd64 Packages [716 kB][0m
+[0;32m    qemu: Get:12 http://security.ubuntu.com/ubuntu lunar-security/universe Translation-en [66.9 kB][0m
+[0;32m    qemu: Get:13 http://security.ubuntu.com/ubuntu lunar-security/universe amd64 c-n-f Metadata [11.7 kB][0m
+[0;32m    qemu: Get:14 http://security.ubuntu.com/ubuntu lunar-security/multiverse amd64 Packages [6296 B][0m
+[0;32m    qemu: Get:15 http://security.ubuntu.com/ubuntu lunar-security/multiverse Translation-en [1112 B][0m
+[0;32m    qemu: Get:16 http://security.ubuntu.com/ubuntu lunar-security/multiverse amd64 c-n-f Metadata [260 B][0m
+[0;32m    qemu: Get:17 http://archive.ubuntu.com/ubuntu lunar/universe Translation-en [5906 kB][0m
+[0;32m    qemu: Get:18 http://archive.ubuntu.com/ubuntu lunar/universe amd64 c-n-f Metadata [303 kB][0m
+[0;32m    qemu: Get:19 http://archive.ubuntu.com/ubuntu lunar/multiverse amd64 Packages [236 kB][0m
+[0;32m    qemu: Get:20 http://archive.ubuntu.com/ubuntu lunar/multiverse Translation-en [112 kB][0m
+[0;32m    qemu: Get:21 http://archive.ubuntu.com/ubuntu lunar/multiverse amd64 c-n-f Metadata [8772 B][0m
+[0;32m    qemu: Get:22 http://archive.ubuntu.com/ubuntu lunar-updates/main amd64 Packages [402 kB][0m
+[0;32m    qemu: Get:23 http://archive.ubuntu.com/ubuntu lunar-updates/main Translation-en [98.2 kB][0m
+[0;32m    qemu: Get:24 http://archive.ubuntu.com/ubuntu lunar-updates/main amd64 c-n-f Metadata [7288 B][0m
+[0;32m    qemu: Get:25 http://archive.ubuntu.com/ubuntu lunar-updates/restricted amd64 Packages [331 kB][0m
+[0;32m    qemu: Get:26 http://archive.ubuntu.com/ubuntu lunar-updates/restricted Translation-en [53.9 kB][0m
+[0;32m    qemu: Get:27 http://archive.ubuntu.com/ubuntu lunar-updates/universe amd64 Packages [764 kB][0m
+[0;32m    qemu: Get:28 http://archive.ubuntu.com/ubuntu lunar-updates/universe Translation-en [85.1 kB][0m
+[0;32m    qemu: Get:29 http://archive.ubuntu.com/ubuntu lunar-updates/universe amd64 c-n-f Metadata [12.9 kB][0m
+[0;32m    qemu: Get:30 http://archive.ubuntu.com/ubuntu lunar-updates/multiverse amd64 Packages [6296 B][0m
+[0;32m    qemu: Get:31 http://archive.ubuntu.com/ubuntu lunar-updates/multiverse Translation-en [1200 B][0m
+[0;32m    qemu: Get:32 http://archive.ubuntu.com/ubuntu lunar-updates/multiverse amd64 c-n-f Metadata [260 B][0m
+[0;32m    qemu: Get:33 http://archive.ubuntu.com/ubuntu lunar-backports/main amd64 c-n-f Metadata [112 B][0m
+[0;32m    qemu: Get:34 http://archive.ubuntu.com/ubuntu lunar-backports/restricted amd64 c-n-f Metadata [116 B][0m
+[0;32m    qemu: Get:35 http://archive.ubuntu.com/ubuntu lunar-backports/universe amd64 Packages [3940 B][0m
+[0;32m    qemu: Get:36 http://archive.ubuntu.com/ubuntu lunar-backports/universe Translation-en [1392 B][0m
+[0;32m    qemu: Get:37 http://archive.ubuntu.com/ubuntu lunar-backports/universe amd64 c-n-f Metadata [172 B][0m
+[0;32m    qemu: Get:38 http://archive.ubuntu.com/ubuntu lunar-backports/multiverse amd64 c-n-f Metadata [116 B][0m
+[0;32m    qemu: Fetched 25.3 MB in 1min 53s (224 kB/s)[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Building dependency tree...[0m
+[0;32m    qemu: Reading state information...[0m
+[0;32m    qemu: Calculating upgrade...[0m
+[0;32m    qemu: The following packages have been kept back:[0m
+[0;32m    qemu:   linux-headers-generic linux-headers-virtual linux-image-virtual[0m
+[0;32m    qemu:   linux-virtual[0m
+[0;32m    qemu: 0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Building dependency tree...[0m
+[0;32m    qemu: Reading state information...[0m
+[0;32m    qemu: Package 'docker' is not installed, so not removed[0m
+[0;32m    qemu: Package 'docker.io' is not installed, so not removed[0m
+[0;32m    qemu: Package 'containerd' is not installed, so not removed[0m
+[0;32m    qemu: Package 'runc' is not installed, so not removed[0m
+[0;32m    qemu: 0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Building dependency tree...[0m
+[0;32m    qemu: Reading state information...[0m
+[0;32m    qemu: git is already the newest version (1:2.39.2-1ubuntu1.1).[0m
+[0;32m    qemu: git set to manually installed.[0m
+[0;32m    qemu: ca-certificates is already the newest version (20230311ubuntu0.23.04.1).[0m
+[0;32m    qemu: ca-certificates set to manually installed.[0m
+[0;32m    qemu: curl is already the newest version (7.88.1-8ubuntu2.1).[0m
+[0;32m    qemu: curl set to manually installed.[0m
+[0;32m    qemu: gnupg is already the newest version (2.2.40-1.1ubuntu1).[0m
+[0;32m    qemu: gnupg set to manually installed.[0m
+[0;32m    qemu: lsb-release is already the newest version (12.0-1ubuntu1).[0m
+[0;32m    qemu: lsb-release set to manually installed.[0m
+[0;32m    qemu: Suggested packages:[0m
+[0;32m    qemu:   make-doc[0m
+[0;32m    qemu: The following NEW packages will be installed:[0m
+[0;32m    qemu:   apt-transport-https make net-tools snap[0m
+[0;32m    qemu: 0 upgraded, 4 newly installed, 0 to remove and 4 not upgraded.[0m
+[0;32m    qemu: Need to get 765 kB of archives.[0m
+[0;32m    qemu: After this operation, 4033 kB of additional disk space will be used.[0m
+[0;32m    qemu: Get:1 http://archive.ubuntu.com/ubuntu lunar-updates/universe amd64 apt-transport-https all 2.6.0ubuntu0.1 [3968 B][0m
+[0;32m    qemu: Get:2 http://archive.ubuntu.com/ubuntu lunar/main amd64 make amd64 4.3-4.1build1 [180 kB][0m
+[0;32m    qemu: Get:3 http://archive.ubuntu.com/ubuntu lunar/main amd64 net-tools amd64 2.10-0.1ubuntu3 [204 kB][0m
+[0;32m    qemu: Get:4 http://archive.ubuntu.com/ubuntu lunar/universe amd64 snap amd64 2013-11-29-11 [377 kB][0m
+[0;32m    qemu: Fetched 765 kB in 3s (300 kB/s)[0m
+[0;32m    qemu: Selecting previously unselected package apt-transport-https.[0m
+[0;32m    qemu: (Reading database ... 65421 files and directories currently installed.)[0m
+[0;32m    qemu: Preparing to unpack .../apt-transport-https_2.6.0ubuntu0.1_all.deb ...[0m
+[0;32m    qemu: Unpacking apt-transport-https (2.6.0ubuntu0.1) ...[0m
+[0;32m    qemu: Selecting previously unselected package make.[0m
+[0;32m    qemu: Preparing to unpack .../make_4.3-4.1build1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking make (4.3-4.1build1) ...[0m
+[0;32m    qemu: Selecting previously unselected package net-tools.[0m
+[0;32m    qemu: Preparing to unpack .../net-tools_2.10-0.1ubuntu3_amd64.deb ...[0m
+[0;32m    qemu: Unpacking net-tools (2.10-0.1ubuntu3) ...[0m
+[0;32m    qemu: Selecting previously unselected package snap.[0m
+[0;32m    qemu: Preparing to unpack .../snap_2013-11-29-11_amd64.deb ...[0m
+[0;32m    qemu: Unpacking snap (2013-11-29-11) ...[0m
+[0;32m    qemu: Setting up net-tools (2.10-0.1ubuntu3) ...[0m
+[0;32m    qemu: Setting up apt-transport-https (2.6.0ubuntu0.1) ...[0m
+[0;32m    qemu: Setting up snap (2013-11-29-11) ...[0m
+[0;32m    qemu: Setting up make (4.3-4.1build1) ...[0m
+[0;32m    qemu: Processing triggers for man-db (2.11.2-1) ...[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: Running kernel seems to be up-to-date.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No services need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No containers need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No user sessions are running outdated binaries.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No VM guests are running outdated hypervisor (qemu) binaries on this host.[0m
+[0;32m    qemu: multipass-sshfs 1.1 from Canonical** installed[0m
+[0;32m    qemu: yq v4.35.1 from Mike Farah (mikefarah) installed[0m
+[0;32m    qemu: ======= step 1.1 donwload gpg file append repo source[0m
+[1;31m==> qemu:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current[0m
+[1;31m==> qemu:                                  Dload  Upload   Total   Spent    Left  Speed[0m
+[1;31m==> qemu: 100  1699  100  1699    0     0   1374      0  0:00:01  0:00:01 --:--:--  1375[0m
+[0;32m    qemu: deb [arch=amd64 signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main[0m
+[0;32m    qemu: deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /[0m
+[0;32m    qemu: Hit:1 http://archive.ubuntu.com/ubuntu lunar InRelease[0m
+[0;32m    qemu: Hit:2 http://archive.ubuntu.com/ubuntu lunar-updates InRelease[0m
+[0;32m    qemu: Hit:3 http://archive.ubuntu.com/ubuntu lunar-backports InRelease[0m
+[0;32m    qemu: Hit:4 http://security.ubuntu.com/ubuntu lunar-security InRelease[0m
+[0;32m    qemu: Get:5 https://download.docker.com/linux/ubuntu lunar InRelease [48.9 kB][0m
+[0;32m    qemu: Get:7 https://baltocdn.com/helm/stable/debian all InRelease [7652 B][0m
+[0;32m    qemu: Get:6 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  InRelease [1186 B][0m
+[0;32m    qemu: Get:8 https://download.docker.com/linux/ubuntu lunar/stable amd64 Packages [10.2 kB][0m
+[0;32m    qemu: Get:9 https://baltocdn.com/helm/stable/debian all/main amd64 Packages [3652 B][0m
+[0;32m    qemu: Get:10 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  Packages [3994 B][0m
+[0;32m    qemu: Fetched 75.5 kB in 17s (4486 B/s)[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Building dependency tree...[0m
+[0;32m    qemu: Reading state information...[0m
+[0;32m    qemu: Calculating upgrade...[0m
+[0;32m    qemu: The following packages have been kept back:[0m
+[0;32m    qemu:   linux-headers-generic linux-headers-virtual linux-image-virtual[0m
+[0;32m    qemu:   linux-virtual[0m
+[0;32m    qemu: 0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.[0m
+[0;32m    qemu: ======= step 1.2 install docker[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Building dependency tree...[0m
+[0;32m    qemu: Reading state information...[0m
+[0;32m    qemu: The following additional packages will be installed:[0m
+[0;32m    qemu:   docker-buildx-plugin docker-ce-rootless-extras libltdl7 libslirp0 pigz[0m
+[0;32m    qemu:   slirp4netns[0m
+[0;32m    qemu: Suggested packages:[0m
+[0;32m    qemu:   aufs-tools cgroupfs-mount | cgroup-lite[0m
+[0;32m    qemu: The following NEW packages will be installed:[0m
+[0;32m    qemu:   containerd.io docker-buildx-plugin docker-ce docker-ce-cli[0m
+[0;32m    qemu:   docker-ce-rootless-extras docker-compose-plugin libltdl7 libslirp0 pigz[0m
+[0;32m    qemu:   slirp4netns[0m
+[0;32m    qemu: 0 upgraded, 10 newly installed, 0 to remove and 4 not upgraded.[0m
+[0;32m    qemu: Need to get 114 MB of archives.[0m
+[0;32m    qemu: After this operation, 408 MB of additional disk space will be used.[0m
+[0;32m    qemu: Get:1 http://archive.ubuntu.com/ubuntu lunar/universe amd64 pigz amd64 2.6-1 [63.6 kB][0m
+[0;32m    qemu: Get:2 https://download.docker.com/linux/ubuntu lunar/stable amd64 containerd.io amd64 1.6.22-1 [28.4 MB][0m
+[0;32m    qemu: Get:3 http://archive.ubuntu.com/ubuntu lunar/main amd64 libltdl7 amd64 2.4.7-5 [40.3 kB][0m
+[0;32m    qemu: Get:4 http://archive.ubuntu.com/ubuntu lunar/main amd64 libslirp0 amd64 4.7.0-1 [62.7 kB][0m
+[0;32m    qemu: Get:5 http://archive.ubuntu.com/ubuntu lunar/universe amd64 slirp4netns amd64 1.2.0-1 [33.5 kB][0m
+[0;32m    qemu: Get:6 https://download.docker.com/linux/ubuntu lunar/stable amd64 docker-buildx-plugin amd64 0.11.2-1~ubuntu.23.04~lunar [28.2 MB][0m
+[0;32m    qemu: Get:7 https://download.docker.com/linux/ubuntu lunar/stable amd64 docker-ce-cli amd64 5:24.0.6-1~ubuntu.23.04~lunar [13.3 MB][0m
+[0;32m    qemu: Get:8 https://download.docker.com/linux/ubuntu lunar/stable amd64 docker-ce amd64 5:24.0.6-1~ubuntu.23.04~lunar [22.6 MB][0m
+[0;32m    qemu: Get:9 https://download.docker.com/linux/ubuntu lunar/stable amd64 docker-ce-rootless-extras amd64 5:24.0.6-1~ubuntu.23.04~lunar [9032 kB][0m
+[0;32m    qemu: Get:10 https://download.docker.com/linux/ubuntu lunar/stable amd64 docker-compose-plugin amd64 2.21.0-1~ubuntu.23.04~lunar [11.9 MB][0m
+[0;32m    qemu: Fetched 114 MB in 1min 2s (1839 kB/s)[0m
+[0;32m    qemu: Selecting previously unselected package pigz.[0m
+[0;32m    qemu: (Reading database ... 65572 files and directories currently installed.)[0m
+[0;32m    qemu: Preparing to unpack .../0-pigz_2.6-1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking pigz (2.6-1) ...[0m
+[0;32m    qemu: Selecting previously unselected package containerd.io.[0m
+[0;32m    qemu: Preparing to unpack .../1-containerd.io_1.6.22-1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking containerd.io (1.6.22-1) ...[0m
+[0;32m    qemu: Selecting previously unselected package docker-buildx-plugin.[0m
+[0;32m    qemu: Preparing to unpack .../2-docker-buildx-plugin_0.11.2-1~ubuntu.23.04~lunar_amd64.deb ...[0m
+[0;32m    qemu: Unpacking docker-buildx-plugin (0.11.2-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Selecting previously unselected package docker-ce-cli.[0m
+[0;32m    qemu: Preparing to unpack .../3-docker-ce-cli_5%3a24.0.6-1~ubuntu.23.04~lunar_amd64.deb ...[0m
+[0;32m    qemu: Unpacking docker-ce-cli (5:24.0.6-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Selecting previously unselected package docker-ce.[0m
+[0;32m    qemu: Preparing to unpack .../4-docker-ce_5%3a24.0.6-1~ubuntu.23.04~lunar_amd64.deb ...[0m
+[0;32m    qemu: Unpacking docker-ce (5:24.0.6-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Selecting previously unselected package docker-ce-rootless-extras.[0m
+[0;32m    qemu: Preparing to unpack .../5-docker-ce-rootless-extras_5%3a24.0.6-1~ubuntu.23.04~lunar_amd64.deb ...[0m
+[0;32m    qemu: Unpacking docker-ce-rootless-extras (5:24.0.6-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Selecting previously unselected package docker-compose-plugin.[0m
+[0;32m    qemu: Preparing to unpack .../6-docker-compose-plugin_2.21.0-1~ubuntu.23.04~lunar_amd64.deb ...[0m
+[0;32m    qemu: Unpacking docker-compose-plugin (2.21.0-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Selecting previously unselected package libltdl7:amd64.[0m
+[0;32m    qemu: Preparing to unpack .../7-libltdl7_2.4.7-5_amd64.deb ...[0m
+[0;32m    qemu: Unpacking libltdl7:amd64 (2.4.7-5) ...[0m
+[0;32m    qemu: Selecting previously unselected package libslirp0:amd64.[0m
+[0;32m    qemu: Preparing to unpack .../8-libslirp0_4.7.0-1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking libslirp0:amd64 (4.7.0-1) ...[0m
+[0;32m    qemu: Selecting previously unselected package slirp4netns.[0m
+[0;32m    qemu: Preparing to unpack .../9-slirp4netns_1.2.0-1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking slirp4netns (1.2.0-1) ...[0m
+[0;32m    qemu: Setting up docker-buildx-plugin (0.11.2-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Setting up containerd.io (1.6.22-1) ...[0m
+[0;32m    qemu: Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.[0m
+[0;32m    qemu: Setting up docker-compose-plugin (2.21.0-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Setting up libltdl7:amd64 (2.4.7-5) ...[0m
+[0;32m    qemu: Setting up docker-ce-cli (5:24.0.6-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Setting up libslirp0:amd64 (4.7.0-1) ...[0m
+[0;32m    qemu: Setting up pigz (2.6-1) ...[0m
+[0;32m    qemu: Setting up docker-ce-rootless-extras (5:24.0.6-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Setting up slirp4netns (1.2.0-1) ...[0m
+[0;32m    qemu: Setting up docker-ce (5:24.0.6-1~ubuntu.23.04~lunar) ...[0m
+[0;32m    qemu: Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.[0m
+[0;32m    qemu: Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.[0m
+[0;32m    qemu: Processing triggers for man-db (2.11.2-1) ...[0m
+[0;32m    qemu: Processing triggers for libc-bin (2.37-0ubuntu2) ...[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: Running kernel seems to be up-to-date.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No services need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No containers need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No user sessions are running outdated binaries.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No VM guests are running outdated hypervisor (qemu) binaries on this host.[0m
+[1;31m==> qemu: Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.[0m
+[1;31m==> qemu: Executing: /lib/systemd/systemd-sysv-install enable docker[0m
+[1;31m==> qemu: Unable to find image 'hello-world:latest' locally[0m
+[1;31m==> qemu: latest: Pulling from library/hello-world[0m
+[1;31m==> qemu: 719385e32844: Pulling fs layer[0m
+[1;31m==> qemu: 719385e32844: Verifying Checksum[0m
+[1;31m==> qemu: 719385e32844: Download complete[0m
+[1;31m==> qemu: 719385e32844: Pull complete[0m
+[1;31m==> qemu: Digest: sha256:dcba6daec718f547568c562956fa47e1b03673dd010fe6ee58ca806767031d1c[0m
+[1;31m==> qemu: Status: Downloaded newer image for hello-world:latest[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: Hello from Docker![0m
+[0;32m    qemu: This message shows that your installation appears to be working correctly.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: To generate this message, Docker took the following steps:[0m
+[0;32m    qemu:  1. The Docker client contacted the Docker daemon.[0m
+[0;32m    qemu:  2. The Docker daemon pulled the "hello-world" image from the Docker Hub.[0m
+[0;32m    qemu:     (amd64)[0m
+[0;32m    qemu:  3. The Docker daemon created a new container from that image which runs the[0m
+[0;32m    qemu:     executable that produces the output you are currently reading.[0m
+[0;32m    qemu:  4. The Docker daemon streamed that output to the Docker client, which sent it[0m
+[0;32m    qemu:     to your terminal.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: To try something more ambitious, you can run an Ubuntu container with:[0m
+[0;32m    qemu:  $ docker run -it ubuntu bash[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: Share images, automate workflows, and more with a free Docker ID:[0m
+[0;32m    qemu:  https://hub.docker.com/[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: For more examples and ideas, visit:[0m
+[0;32m    qemu:  https://docs.docker.com/get-started/[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: ======= step 1.3 install k8s[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Building dependency tree...[0m
+[0;32m    qemu: Reading state information...[0m
+[0;32m    qemu: The following additional packages will be installed:[0m
+[0;32m    qemu:   conntrack cri-tools ebtables kubernetes-cni socat[0m
+[0;32m    qemu: The following NEW packages will be installed:[0m
+[0;32m    qemu:   conntrack cri-tools ebtables kubeadm kubectl kubelet kubernetes-cni socat[0m
+[0;32m    qemu: 0 upgraded, 8 newly installed, 0 to remove and 4 not upgraded.[0m
+[0;32m    qemu: Need to get 87.8 MB of archives.[0m
+[0;32m    qemu: After this operation, 339 MB of additional disk space will be used.[0m
+[0;32m    qemu: Get:1 http://archive.ubuntu.com/ubuntu lunar/main amd64 conntrack amd64 1:1.4.7-1 [37.3 kB][0m
+[0;32m    qemu: Get:2 http://archive.ubuntu.com/ubuntu lunar/main amd64 ebtables amd64 2.0.11-5 [85.1 kB][0m
+[0;32m    qemu: Get:4 http://archive.ubuntu.com/ubuntu lunar/main amd64 socat amd64 1.7.4.4-2 [350 kB][0m
+[0;32m    qemu: Get:3 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  cri-tools 1.28.0-1.1 [19.6 MB][0m
+[0;32m    qemu: Get:5 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  kubernetes-cni 1.2.0-2.1 [27.6 MB][0m
+[0;32m    qemu: Get:6 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  kubelet 1.28.1-1.1 [19.5 MB][0m
+[0;32m    qemu: Get:7 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  kubectl 1.28.1-1.1 [10.3 MB][0m
+[0;32m    qemu: Get:8 https://prod-cdn.packages.k8s.io/repositories/isv:/kubernetes:/core:/stable:/v1.28/deb  kubeadm 1.28.1-1.1 [10.3 MB][0m
+[0;32m    qemu: Fetched 87.8 MB in 53s (1652 kB/s)[0m
+[0;32m    qemu: Selecting previously unselected package conntrack.[0m
+[0;32m    qemu: (Reading database ... 65839 files and directories currently installed.)[0m
+[0;32m    qemu: Preparing to unpack .../0-conntrack_1%3a1.4.7-1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking conntrack (1:1.4.7-1) ...[0m
+[0;32m    qemu: Selecting previously unselected package cri-tools.[0m
+[0;32m    qemu: Preparing to unpack .../1-cri-tools_1.28.0-1.1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking cri-tools (1.28.0-1.1) ...[0m
+[0;32m    qemu: Selecting previously unselected package ebtables.[0m
+[0;32m    qemu: Preparing to unpack .../2-ebtables_2.0.11-5_amd64.deb ...[0m
+[0;32m    qemu: Unpacking ebtables (2.0.11-5) ...[0m
+[0;32m    qemu: Selecting previously unselected package kubernetes-cni.[0m
+[0;32m    qemu: Preparing to unpack .../3-kubernetes-cni_1.2.0-2.1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking kubernetes-cni (1.2.0-2.1) ...[0m
+[0;32m    qemu: Selecting previously unselected package socat.[0m
+[0;32m    qemu: Preparing to unpack .../4-socat_1.7.4.4-2_amd64.deb ...[0m
+[0;32m    qemu: Unpacking socat (1.7.4.4-2) ...[0m
+[0;32m    qemu: Selecting previously unselected package kubelet.[0m
+[0;32m    qemu: Preparing to unpack .../5-kubelet_1.28.1-1.1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking kubelet (1.28.1-1.1) ...[0m
+[0;32m    qemu: Selecting previously unselected package kubectl.[0m
+[0;32m    qemu: Preparing to unpack .../6-kubectl_1.28.1-1.1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking kubectl (1.28.1-1.1) ...[0m
+[0;32m    qemu: Selecting previously unselected package kubeadm.[0m
+[0;32m    qemu: Preparing to unpack .../7-kubeadm_1.28.1-1.1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking kubeadm (1.28.1-1.1) ...[0m
+[0;32m    qemu: Setting up conntrack (1:1.4.7-1) ...[0m
+[0;32m    qemu: Setting up kubectl (1.28.1-1.1) ...[0m
+[0;32m    qemu: Setting up ebtables (2.0.11-5) ...[0m
+[0;32m    qemu: Setting up socat (1.7.4.4-2) ...[0m
+[0;32m    qemu: Setting up cri-tools (1.28.0-1.1) ...[0m
+[0;32m    qemu: Setting up kubernetes-cni (1.2.0-2.1) ...[0m
+[0;32m    qemu: Setting up kubelet (1.28.1-1.1) ...[0m
+[0;32m    qemu: Setting up kubeadm (1.28.1-1.1) ...[0m
+[0;32m    qemu: Processing triggers for man-db (2.11.2-1) ...[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: Running kernel seems to be up-to-date.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No services need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No containers need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No user sessions are running outdated binaries.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No VM guests are running outdated hypervisor (qemu) binaries on this host.[0m
+[0;32m    qemu: kubelet set on hold.[0m
+[0;32m    qemu: kubeadm set on hold.[0m
+[0;32m    qemu: kubectl set on hold.[0m
+[0;32m    qemu: ======= step 1.4 install helm[0m
+[0;32m    qemu: Reading package lists...[0m
+[0;32m    qemu: Building dependency tree...[0m
+[0;32m    qemu: Reading state information...[0m
+[0;32m    qemu: The following NEW packages will be installed:[0m
+[0;32m    qemu:   helm[0m
+[0;32m    qemu: 0 upgraded, 1 newly installed, 0 to remove and 4 not upgraded.[0m
+[0;32m    qemu: Need to get 16.0 MB of archives.[0m
+[0;32m    qemu: After this operation, 50.6 MB of additional disk space will be used.[0m
+[0;32m    qemu: Get:1 https://baltocdn.com/helm/stable/debian all/main amd64 helm amd64 3.12.3-1 [16.0 MB][0m
+[0;32m    qemu: Fetched 16.0 MB in 13s (1273 kB/s)[0m
+[0;32m    qemu: Selecting previously unselected package helm.[0m
+[0;32m    qemu: (Reading database ... 65958 files and directories currently installed.)[0m
+[0;32m    qemu: Preparing to unpack .../helm_3.12.3-1_amd64.deb ...[0m
+[0;32m    qemu: Unpacking helm (3.12.3-1) ...[0m
+[0;32m    qemu: Setting up helm (3.12.3-1) ...[0m
+[0;32m    qemu: Processing triggers for man-db (2.11.2-1) ...[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: Running kernel seems to be up-to-date.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No services need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No containers need to be restarted.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No user sessions are running outdated binaries.[0m
+[0;32m    qemu:[0m
+[0;32m    qemu: No VM guests are running outdated hypervisor (qemu) binaries on this host.[0m
+[1;32m==> qemu: Provisioning with shell script: /tmp/packer-shell4135363498[0m
+[0;32m    qemu: ======= step 2. config apps[0m
+[0;32m    qemu: install cri-dockerd....[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/10-console-messages.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/10-ipv6-privacy.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/10-kernel-hardening.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/10-magic-sysrq.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/10-network-security.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/10-ptrace.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/10-zeropage.conf ...[0m
+[0;32m    qemu: * Applying /usr/lib/sysctl.d/50-pid-max.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/99-cloudimg-ipv6.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/99-kubernetes-cri.conf ...[0m
+[0;32m    qemu: * Applying /usr/lib/sysctl.d/99-protect-links.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/99-sysctl.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.d/k8s.conf ...[0m
+[0;32m    qemu: * Applying /etc/sysctl.conf ...[0m
+[0;32m    qemu: kernel.printk = 4 4 1 7[0m
+[0;32m    qemu: net.ipv6.conf.all.use_tempaddr = 2[0m
+[0;32m    qemu: net.ipv6.conf.default.use_tempaddr = 2[0m
+[0;32m    qemu: kernel.kptr_restrict = 1[0m
+[0;32m    qemu: kernel.sysrq = 176[0m
+[0;32m    qemu: net.ipv4.conf.default.rp_filter = 2[0m
+[0;32m    qemu: net.ipv4.conf.all.rp_filter = 2[0m
+[0;32m    qemu: kernel.yama.ptrace_scope = 1[0m
+[0;32m    qemu: vm.mmap_min_addr = 65536[0m
+[0;32m    qemu: kernel.pid_max = 4194304[0m
+[0;32m    qemu: net.ipv6.conf.all.use_tempaddr = 0[0m
+[0;32m    qemu: net.ipv6.conf.default.use_tempaddr = 0[0m
+[0;32m    qemu: net.ipv4.conf.all.rp_filter = 1[0m
+[0;32m    qemu: fs.protected_fifos = 1[0m
+[0;32m    qemu: fs.protected_hardlinks = 1[0m
+[0;32m    qemu: fs.protected_regular = 2[0m
+[0;32m    qemu: fs.protected_symlinks = 1[0m
+[0;32m    qemu: net.bridge.bridge-nf-call-ip6tables = 1[0m
+[0;32m    qemu: net.ipv4.ip_forward = 1[0m
+[0;32m    qemu: br_netfilter           32768  0[0m
+[0;32m    qemu: bridge                413696  1 br_netfilter[0m
+[0;32m    qemu: overlay               188416  0[0m
+[0;32m    qemu: net.bridge.bridge-nf-call-iptables = 1[0m
+[0;32m    qemu: net.bridge.bridge-nf-call-ip6tables = 1[0m
+[0;32m    qemu: net.ipv4.ip_forward = 1[0m
+[0;32m    qemu: cpuset cpu io memory hugetlb pids rdma misc[0m
+[1;31m==> qemu: Cloning into 'cri-dockerd'...[0m
+[1;31m==> qemu: Updating files: 100% (6123/6123), done.[0m
+[1;31m==> qemu: --2023-09-09 13:27:01--  https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.4/cri-dockerd-0.3.4.amd64.tgz[0m
+[1;31m==> qemu: Resolving github.com (github.com)... 20.205.243.166[0m
+[1;31m==> qemu: Connecting to github.com (github.com)|20.205.243.166|:443... connected.[0m
+[1;31m==> qemu: HTTP request sent, awaiting response... 302 Found[0m
+[1;31m==> qemu: Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/318491505/b668a35f-d269-4b0b-9736-fbb1a19e3873?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230909%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230909T132703Z&X-Amz-Expires=300&X-Amz-Signature=63e3ab259e0bfc600b34d911d24584aaf37ca50ea1d88affe0e7c7e801110293&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=318491505&response-content-disposition=attachment%3B%20filename%3Dcri-dockerd-0.3.4.amd64.tgz&response-content-type=application%2Foctet-stream [following][0m
+[1;31m==> qemu: --2023-09-09 13:27:03--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/318491505/b668a35f-d269-4b0b-9736-fbb1a19e3873?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230909%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230909T132703Z&X-Amz-Expires=300&X-Amz-Signature=63e3ab259e0bfc600b34d911d24584aaf37ca50ea1d88affe0e7c7e801110293&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=318491505&response-content-disposition=attachment%3B%20filename%3Dcri-dockerd-0.3.4.amd64.tgz&response-content-type=application%2Foctet-stream[0m
+[1;31m==> qemu: Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.110.133, ...[0m
+[1;31m==> qemu: Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.109.133|:443... connected.[0m
+[1;31m==> qemu: HTTP request sent, awaiting response... 200 OK[0m
+[1;31m==> qemu: Length: 13242440 (13M) [application/octet-stream][0m
+[1;31m==> qemu: Saving to: ‘cri-dockerd-0.3.4.amd64.tgz’[0m
+[1;31m==> qemu:[0m
+[1;31m==> qemu:      0K .......... .......... .......... .......... ..........  0%  109K 1m58s[0m
+[1;31m==> qemu:     50K .......... .......... .......... .......... ..........  0% 1.63M 63s[0m
+[1;31m==> qemu:    100K .......... .......... .......... .......... ..........  1% 1.38M 45s[0m
+[1;31m==> qemu:    150K .......... .......... .......... .......... ..........  1% 1.86M 35s[0m
+[1;31m==> qemu:    200K .......... .......... .......... .......... ..........  1% 1.89M 29s[0m
+[1;31m==> qemu:    250K .......... .......... .......... .......... ..........  2%  947K 26s[0m
+[1;31m==> qemu:    300K .......... .......... .......... .......... ..........  2% 94.0K 42s[0m
+[1;31m==> qemu:    350K .......... .......... .......... .......... ..........  3%  765K 38s[0m
+[1;31m==> qemu:    400K .......... .......... .......... .......... ..........  3% 1.75M 35s[0m
+[1;31m==> qemu:    450K .......... .......... .......... .......... ..........  3%  831K 33s[0m
+[1;31m==> qemu:    500K .......... .......... .......... .......... ..........  4% 1007K 31s[0m
+[1;31m==> qemu:    550K .......... .......... .......... .......... ..........  4%  246K 32s[0m
+[1;31m==> qemu:    600K .......... .......... .......... .......... ..........  5%  766K 31s[0m
+[1;31m==> qemu:    650K .......... .......... .......... .......... ..........  5% 1.45M 29s[0m
+[1;31m==> qemu:    700K .......... .......... .......... .......... ..........  5% 1.82M 27s[0m
+[1;31m==> qemu:    750K .......... .......... .......... .......... ..........  6%  936K 26s[0m
+[1;31m==> qemu:    800K .......... .......... .......... .......... ..........  6%  496K 26s[0m
+[1;31m==> qemu:    850K .......... .......... .......... .......... ..........  6%  738K 26s[0m
+[1;31m==> qemu:    900K .......... .......... .......... .......... ..........  7% 1.47M 25s[0m
+[1;31m==> qemu:    950K .......... .......... .......... .......... ..........  7% 1.57M 24s[0m
+[1;31m==> qemu:   1000K .......... .......... .......... .......... ..........  8% 3.01M 23s[0m
+[1;31m==> qemu:   1050K .......... .......... .......... .......... ..........  8% 1.90M 22s[0m
+[1;31m==> qemu:   1100K .......... .......... .......... .......... ..........  8% 1.66M 21s[0m
+[1;31m==> qemu:   1150K .......... .......... .......... .......... ..........  9% 1.22M 20s[0m
+[1;31m==> qemu:   1200K .......... .......... .......... .......... ..........  9% 2.36M 20s[0m
+[1;31m==> qemu:   1250K .......... .......... .......... .......... .......... 10% 2.72M 19s[0m
+[1;31m==> qemu:   1300K .......... .......... .......... .......... .......... 10% 2.10M 18s[0m
+[1;31m==> qemu:   1350K .......... .......... .......... .......... .......... 10% 1.85M 18s[0m
+[1;31m==> qemu:   1400K .......... .......... .......... .......... .......... 11% 1.96M 17s[0m
+[1;31m==> qemu:   1450K .......... .......... .......... .......... .......... 11% 2.52M 17s[0m
+[1;31m==> qemu:   1500K .......... .......... .......... .......... .......... 11% 2.17M 16s[0m
+[1;31m==> qemu:   1550K .......... .......... .......... .......... .......... 12% 1.54M 16s[0m
+[1;31m==> qemu:   1600K .......... .......... .......... .......... .......... 12% 1.75M 16s[0m
+[1;31m==> qemu:   1650K .......... .......... .......... .......... .......... 13% 2.67M 15s[0m
+[1;31m==> qemu:   1700K .......... .......... .......... .......... .......... 13% 1.74M 15s[0m
+[1;31m==> qemu:   1750K .......... .......... .......... .......... .......... 13% 1.25M 15s[0m
+[1;31m==> qemu:   1800K .......... .......... .......... .......... .......... 14% 3.01M 14s[0m
+[1;31m==> qemu:   1850K .......... .......... .......... .......... .......... 14% 2.10M 14s[0m
+[1;31m==> qemu:   1900K .......... .......... .......... .......... .......... 15% 2.38M 14s[0m
+[1;31m==> qemu:   1950K .......... .......... .......... .......... .......... 15% 1.69M 14s[0m
+[1;31m==> qemu:   2000K .......... .......... .......... .......... .......... 15% 1.74M 13s[0m
+[1;31m==> qemu:   2050K .......... .......... .......... .......... .......... 16% 1.53M 13s[0m
+[1;31m==> qemu:   2100K .......... .......... .......... .......... .......... 16% 1.59M 13s[0m
+[1;31m==> qemu:   2150K .......... .......... .......... .......... .......... 17% 1.80M 13s[0m
+[1;31m==> qemu:   2200K .......... .......... .......... .......... .......... 17% 2.03M 12s[0m
+[1;31m==> qemu:   2250K .......... .......... .......... .......... .......... 17% 1.53M 12s[0m
+[1;31m==> qemu:   2300K .......... .......... .......... .......... .......... 18% 1.67M 12s[0m
+[1;31m==> qemu:   2350K .......... .......... .......... .......... .......... 18% 1.56M 12s[0m
+[1;31m==> qemu:   2400K .......... .......... .......... .......... .......... 18% 1.59M 12s[0m
+[1;31m==> qemu:   2450K .......... .......... .......... .......... .......... 19% 2.14M 12s[0m
+[1;31m==> qemu:   2500K .......... .......... .......... .......... .......... 19% 1.75M 11s[0m
+[1;31m==> qemu:   2550K .......... .......... .......... .......... .......... 20% 1.46M 11s[0m
+[1;31m==> qemu:   2600K .......... .......... .......... .......... .......... 20% 1.67M 11s[0m
+[1;31m==> qemu:   2650K .......... .......... .......... .......... .......... 20% 2.82M 11s[0m
+[1;31m==> qemu:   2700K .......... .......... .......... .......... .......... 21% 2.03M 11s[0m
+[1;31m==> qemu:   2750K .......... .......... .......... .......... .......... 21% 1.25M 11s[0m
+[1;31m==> qemu:   2800K .......... .......... .......... .......... .......... 22% 1.73M 10s[0m
+[1;31m==> qemu:   2850K .......... .......... .......... .......... .......... 22% 1.35M 10s[0m
+[1;31m==> qemu:   2900K .......... .......... .......... .......... .......... 22% 1.40M 10s[0m
+[1;31m==> qemu:   2950K .......... .......... .......... .......... .......... 23% 1.22M 10s[0m
+[1;31m==> qemu:   3000K .......... .......... .......... .......... .......... 23% 1.54M 10s[0m
+[1;31m==> qemu:   3050K .......... .......... .......... .......... .......... 23% 1.83M 10s[0m
+[1;31m==> qemu:   3100K .......... .......... .......... .......... .......... 24% 1.66M 10s[0m
+[1;31m==> qemu:   3150K .......... .......... .......... .......... .......... 24% 1.69M 10s[0m
+[1;31m==> qemu:   3200K .......... .......... .......... .......... .......... 25% 2.11M 10s[0m
+[1;31m==> qemu:   3250K .......... .......... .......... .......... .......... 25% 1.63M 9s[0m
+[1;31m==> qemu:   3300K .......... .......... .......... .......... .......... 25% 1.46M 9s[0m
+[1;31m==> qemu:   3350K .......... .......... .......... .......... .......... 26% 1.73M 9s[0m
+[1;31m==> qemu:   3400K .......... .......... .......... .......... .......... 26% 2.69M 9s[0m
+[1;31m==> qemu:   3450K .......... .......... .......... .......... .......... 27% 2.20M 9s[0m
+[1;31m==> qemu:   3500K .......... .......... .......... .......... .......... 27% 1.82M 9s[0m
+[1;31m==> qemu:   3550K .......... .......... .......... .......... .......... 27% 1.12M 9s[0m
+[1;31m==> qemu:   3600K .......... .......... .......... .......... .......... 28% 1.69M 9s[0m
+[1;31m==> qemu:   3650K .......... .......... .......... .......... .......... 28% 1.86M 9s[0m
+[1;31m==> qemu:   3700K .......... .......... .......... .......... .......... 28% 1.57M 9s[0m
+[1;31m==> qemu:   3750K .......... .......... .......... .......... .......... 29% 1.54M 9s[0m
+[1;31m==> qemu:   3800K .......... .......... .......... .......... .......... 29% 1.83M 8s[0m
+[1;31m==> qemu:   3850K .......... .......... .......... .......... .......... 30% 1.76M 8s[0m
+[1;31m==> qemu:   3900K .......... .......... .......... .......... .......... 30% 1.91M 8s[0m
+[1;31m==> qemu:   3950K .......... .......... .......... .......... .......... 30% 2.35M 8s[0m
+[1;31m==> qemu:   4000K .......... .......... .......... .......... .......... 31% 1.24M 8s[0m
+[1;31m==> qemu:   4050K .......... .......... .......... .......... .......... 31% 1.47M 8s[0m
+[1;31m==> qemu:   4100K .......... .......... .......... .......... .......... 32% 1.40M 8s[0m
+[1;31m==> qemu:   4150K .......... .......... .......... .......... .......... 32% 1.73M 8s[0m
+[1;31m==> qemu:   4200K .......... .......... .......... .......... .......... 32% 1.72M 8s[0m
+[1;31m==> qemu:   4250K .......... .......... .......... .......... .......... 33% 1.76M 8s[0m
+[1;31m==> qemu:   4300K .......... .......... .......... .......... .......... 33% 2.47M 8s[0m
+[1;31m==> qemu:   4350K .......... .......... .......... .......... .......... 34% 1.79M 8s[0m
+[1;31m==> qemu:   4400K .......... .......... .......... .......... .......... 34% 2.37M 7s[0m
+[1;31m==> qemu:   4450K .......... .......... .......... .......... .......... 34% 2.95M 7s[0m
+[1;31m==> qemu:   4500K .......... .......... .......... .......... .......... 35% 1.27M 7s[0m
+[1;31m==> qemu:   4550K .......... .......... .......... .......... .......... 35% 1.45M 7s[0m
+[1;31m==> qemu:   4600K .......... .......... .......... .......... .......... 35% 1.92M 7s[0m
+[1;31m==> qemu:   4650K .......... .......... .......... .......... .......... 36% 1.88M 7s[0m
+[1;31m==> qemu:   4700K .......... .......... .......... .......... .......... 36% 1.39M 7s[0m
+[1;31m==> qemu:   4750K .......... .......... .......... .......... .......... 37% 1.38M 7s[0m
+[1;31m==> qemu:   4800K .......... .......... .......... .......... .......... 37% 1.95M 7s[0m
+[1;31m==> qemu:   4850K .......... .......... .......... .......... .......... 37% 2.79M 7s[0m
+[1;31m==> qemu:   4900K .......... .......... .......... .......... .......... 38% 1.40M 7s[0m
+[1;31m==> qemu:   4950K .......... .......... .......... .......... .......... 38% 1.20M 7s[0m
+[1;31m==> qemu:   5000K .......... .......... .......... .......... .......... 39% 3.04M 7s[0m
+[1;31m==> qemu:   5050K .......... .......... .......... .......... .......... 39% 1.46M 7s[0m
+[1;31m==> qemu:   5100K .......... .......... .......... .......... .......... 39% 1.95M 7s[0m
+[1;31m==> qemu:   5150K .......... .......... .......... .......... .......... 40% 1.71M 6s[0m
+[1;31m==> qemu:   5200K .......... .......... .......... .......... .......... 40% 1.62M 6s[0m
+[1;31m==> qemu:   5250K .......... .......... .......... .......... .......... 40% 2.29M 6s[0m
+[1;31m==> qemu:   5300K .......... .......... .......... .......... .......... 41% 1.44M 6s[0m
+[1;31m==> qemu:   5350K .......... .......... .......... .......... .......... 41% 1.42M 6s[0m
+[1;31m==> qemu:   5400K .......... .......... .......... .......... .......... 42% 1.92M 6s[0m
+[1;31m==> qemu:   5450K .......... .......... .......... .......... .......... 42% 2.12M 6s[0m
+[1;31m==> qemu:   5500K .......... .......... .......... .......... .......... 42% 1.40M 6s[0m
+[1;31m==> qemu:   5550K .......... .......... .......... .......... .......... 43% 1.30M 6s[0m
+[1;31m==> qemu:   5600K .......... .......... .......... .......... .......... 43% 1.89M 6s[0m
+[1;31m==> qemu:   5650K .......... .......... .......... .......... .......... 44% 1.93M 6s[0m
+[1;31m==> qemu:   5700K .......... .......... .......... .......... .......... 44% 1.76M 6s[0m
+[1;31m==> qemu:   5750K .......... .......... .......... .......... .......... 44% 1.22M 6s[0m
+[1;31m==> qemu:   5800K .......... .......... .......... .......... .......... 45% 2.76M 6s[0m
+[1;31m==> qemu:   5850K .......... .......... .......... .......... .......... 45% 2.04M 6s[0m
+[1;31m==> qemu:   5900K .......... .......... .......... .......... .......... 46% 2.02M 6s[0m
+[1;31m==> qemu:   5950K .......... .......... .......... .......... .......... 46% 2.05M 6s[0m
+[1;31m==> qemu:   6000K .......... .......... .......... .......... .......... 46% 1.58M 5s[0m
+[1;31m==> qemu:   6050K .......... .......... .......... .......... .......... 47% 1.46M 5s[0m
+[1;31m==> qemu:   6100K .......... .......... .......... .......... .......... 47% 1.32M 5s[0m
+[1;31m==> qemu:   6150K .......... .......... .......... .......... .......... 47% 1.82M 5s[0m
+[1;31m==> qemu:   6200K .......... .......... .......... .......... .......... 48% 1.38M 5s[0m
+[1;31m==> qemu:   6250K .......... .......... .......... .......... .......... 48% 1.62M 5s[0m
+[1;31m==> qemu:   6300K .......... .......... .......... .......... .......... 49% 2.02M 5s[0m
+[1;31m==> qemu:   6350K .......... .......... .......... .......... .......... 49% 1.29M 5s[0m
+[1;31m==> qemu:   6400K .......... .......... .......... .......... .......... 49% 1.58M 5s[0m
+[1;31m==> qemu:   6450K .......... .......... .......... .......... .......... 50% 1.33M 5s[0m
+[1;31m==> qemu:   6500K .......... .......... .......... .......... .......... 50% 1.58M 5s[0m
+[1;31m==> qemu:   6550K .......... .......... .......... .......... .......... 51% 2.06M 5s[0m
+[1;31m==> qemu:   6600K .......... .......... .......... .......... .......... 51% 1.85M 5s[0m
+[1;31m==> qemu:   6650K .......... .......... .......... .......... .......... 51% 1.94M 5s[0m
+[1;31m==> qemu:   6700K .......... .......... .......... .......... .......... 52% 1.50M 5s[0m
+[1;31m==> qemu:   6750K .......... .......... .......... .......... .......... 52% 2.28M 5s[0m
+[1;31m==> qemu:   6800K .......... .......... .......... .......... .......... 52% 1.35M 5s[0m
+[1;31m==> qemu:   6850K .......... .......... .......... .......... .......... 53% 2.06M 5s[0m
+[1;31m==> qemu:   6900K .......... .......... .......... .......... .......... 53% 1.41M 5s[0m
+[1;31m==> qemu:   6950K .......... .......... .......... .......... .......... 54% 1.15M 5s[0m
+[1;31m==> qemu:   7000K .......... .......... .......... .......... .......... 54% 3.16M 5s[0m
+[1;31m==> qemu:   7050K .......... .......... .......... .......... .......... 54% 1.47M 4s[0m
+[1;31m==> qemu:   7100K .......... .......... .......... .......... .......... 55% 1.25M 4s[0m
+[1;31m==> qemu:   7150K .......... .......... .......... .......... .......... 55% 1.55M 4s[0m
+[1;31m==> qemu:   7200K .......... .......... .......... .......... .......... 56% 1.85M 4s[0m
+[1;31m==> qemu:   7250K .......... .......... .......... .......... .......... 56% 1.45M 4s[0m
+[1;31m==> qemu:   7300K .......... .......... .......... .......... .......... 56% 1.88M 4s[0m
+[1;31m==> qemu:   7350K .......... .......... .......... .......... .......... 57%  601K 4s[0m
+[1;31m==> qemu:   7400K .......... .......... .......... .......... .......... 57%  907K 4s[0m
+[1;31m==> qemu:   7450K .......... .......... .......... .......... .......... 57% 1.53M 4s[0m
+[1;31m==> qemu:   7500K .......... .......... .......... .......... .......... 58% 1.77M 4s[0m
+[1;31m==> qemu:   7550K .......... .......... .......... .......... .......... 58% 1.71M 4s[0m
+[1;31m==> qemu:   7600K .......... .......... .......... .......... .......... 59% 2.08M 4s[0m
+[1;31m==> qemu:   7650K .......... .......... .......... .......... .......... 59% 1.36M 4s[0m
+[1;31m==> qemu:   7700K .......... .......... .......... .......... .......... 59% 1.35M 4s[0m
+[1;31m==> qemu:   7750K .......... .......... .......... .......... .......... 60% 1.30M 4s[0m
+[1;31m==> qemu:   7800K .......... .......... .......... .......... .......... 60% 1.34M 4s[0m
+[1;31m==> qemu:   7850K .......... .......... .......... .......... .......... 61% 2.31M 4s[0m
+[1;31m==> qemu:   7900K .......... .......... .......... .......... .......... 61% 1.68M 4s[0m
+[1;31m==> qemu:   7950K .......... .......... .......... .......... .......... 61% 1.41M 4s[0m
+[1;31m==> qemu:   8000K .......... .......... .......... .......... .......... 62% 1.90M 4s[0m
+[1;31m==> qemu:   8050K .......... .......... .......... .......... .......... 62% 1.77M 4s[0m
+[1;31m==> qemu:   8100K .......... .......... .......... .......... .......... 63% 1.61M 4s[0m
+[1;31m==> qemu:   8150K .......... .......... .......... .......... .......... 63% 1.51M 4s[0m
+[1;31m==> qemu:   8200K .......... .......... .......... .......... .......... 63% 1.85M 4s[0m
+[1;31m==> qemu:   8250K .......... .......... .......... .......... .......... 64% 1.32M 3s[0m
+[1;31m==> qemu:   8300K .......... .......... .......... .......... .......... 64%  871K 3s[0m
+[1;31m==> qemu:   8350K .......... .......... .......... .......... .......... 64% 1.54M 3s[0m
+[1;31m==> qemu:   8400K .......... .......... .......... .......... .......... 65% 1.94M 3s[0m
+[1;31m==> qemu:   8450K .......... .......... .......... .......... .......... 65% 1.61M 3s[0m
+[1;31m==> qemu:   8500K .......... .......... .......... .......... .......... 66% 1.36M 3s[0m
+[1;31m==> qemu:   8550K .......... .......... .......... .......... .......... 66% 2.12M 3s[0m
+[1;31m==> qemu:   8600K .......... .......... .......... .......... .......... 66% 1.83M 3s[0m
+[1;31m==> qemu:   8650K .......... .......... .......... .......... .......... 67%  539K 3s[0m
+[1;31m==> qemu:   8700K .......... .......... .......... .......... .......... 67% 1.08M 3s[0m
+[1;31m==> qemu:   8750K .......... .......... .......... .......... .......... 68% 1.64M 3s[0m
+[1;31m==> qemu:   8800K .......... .......... .......... .......... .......... 68% 1.76M 3s[0m
+[1;31m==> qemu:   8850K .......... .......... .......... .......... .......... 68% 1.44M 3s[0m
+[1;31m==> qemu:   8900K .......... .......... .......... .......... .......... 69% 2.03M 3s[0m
+[1;31m==> qemu:   8950K .......... .......... .......... .......... .......... 69% 1.75M 3s[0m
+[1;31m==> qemu:   9000K .......... .......... .......... .......... .......... 69% 1.96M 3s[0m
+[1;31m==> qemu:   9050K .......... .......... .......... .......... .......... 70% 1.34M 3s[0m
+[1;31m==> qemu:   9100K .......... .......... .......... .......... .......... 70% 1.49M 3s[0m
+[1;31m==> qemu:   9150K .......... .......... .......... .......... .......... 71% 1.15M 3s[0m
+[1;31m==> qemu:   9200K .......... .......... .......... .......... .......... 71% 1.73M 3s[0m
+[1;31m==> qemu:   9250K .......... .......... .......... .......... .......... 71% 1.41M 3s[0m
+[1;31m==> qemu:   9300K .......... .......... .......... .......... .......... 72% 1.66M 3s[0m
+[1;31m==> qemu:   9350K .......... .......... .......... .......... .......... 72% 1.92M 3s[0m
+[1;31m==> qemu:   9400K .......... .......... .......... .......... .......... 73% 1.24M 3s[0m
+[1;31m==> qemu:   9450K .......... .......... .......... .......... .......... 73% 2.02M 3s[0m
+[1;31m==> qemu:   9500K .......... .......... .......... .......... .......... 73% 2.90M 3s[0m
+[1;31m==> qemu:   9550K .......... .......... .......... .......... .......... 74% 1.12M 2s[0m
+[1;31m==> qemu:   9600K .......... .......... .......... .......... .......... 74% 1.96M 2s[0m
+[1;31m==> qemu:   9650K .......... .......... .......... .......... .......... 75% 3.20M 2s[0m
+[1;31m==> qemu:   9700K .......... .......... .......... .......... .......... 75% 1.75M 2s[0m
+[1;31m==> qemu:   9750K .......... .......... .......... .......... .......... 75% 1.40M 2s[0m
+[1;31m==> qemu:   9800K .......... .......... .......... .......... .......... 76% 1.79M 2s[0m
+[1;31m==> qemu:   9850K .......... .......... .......... .......... .......... 76% 2.89M 2s[0m
+[1;31m==> qemu:   9900K .......... .......... .......... .......... .......... 76% 1.71M 2s[0m
+[1;31m==> qemu:   9950K .......... .......... .......... .......... .......... 77% 1.62M 2s[0m
+[1;31m==> qemu:  10000K .......... .......... .......... .......... .......... 77% 1.77M 2s[0m
+[1;31m==> qemu:  10050K .......... .......... .......... .......... .......... 78% 1.93M 2s[0m
+[1;31m==> qemu:  10100K .......... .......... .......... .......... .......... 78% 3.09M 2s[0m
+[1;31m==> qemu:  10150K .......... .......... .......... .......... .......... 78% 1.45M 2s[0m
+[1;31m==> qemu:  10200K .......... .......... .......... .......... .......... 79% 3.06M 2s[0m
+[1;31m==> qemu:  10250K .......... .......... .......... .......... .......... 79% 1.41M 2s[0m
+[1;31m==> qemu:  10300K .......... .......... .......... .......... .......... 80% 1.85M 2s[0m
+[1;31m==> qemu:  10350K .......... .......... .......... .......... .......... 80% 1.25M 2s[0m
+[1;31m==> qemu:  10400K .......... .......... .......... .......... .......... 80% 1.52M 2s[0m
+[1;31m==> qemu:  10450K .......... .......... .......... .......... .......... 81%  658K 2s[0m
+[1;31m==> qemu:  10500K .......... .......... .......... .......... .......... 81%  726K 2s[0m
+[1;31m==> qemu:  10550K .......... .......... .......... .......... .......... 81%  748K 2s[0m
+[1;31m==> qemu:  10600K .......... .......... .......... .......... .......... 82%  478K 2s[0m
+[1;31m==> qemu:  10650K .......... .......... .......... .......... .......... 82%  685K 2s[0m
+[1;31m==> qemu:  10700K .......... .......... .......... .......... .......... 83%  545K 2s[0m
+[1;31m==> qemu:  10750K .......... .......... .......... .......... .......... 83%  794K 2s[0m
+[1;31m==> qemu:  10800K .......... .......... .......... .......... .......... 83%  596K 2s[0m
+[1;31m==> qemu:  10850K .......... .......... .......... .......... .......... 84%  683K 2s[0m
+[1;31m==> qemu:  10900K .......... .......... .......... .......... .......... 84% 1.19M 2s[0m
+[1;31m==> qemu:  10950K .......... .......... .......... .......... .......... 85% 1.66M 1s[0m
+[1;31m==> qemu:  11000K .......... .......... .......... .......... .......... 85% 1.91M 1s[0m
+[1;31m==> qemu:  11050K .......... .......... .......... .......... .......... 85% 1.98M 1s[0m
+[1;31m==> qemu:  11100K .......... .......... .......... .......... .......... 86% 1.82M 1s[0m
+[1;31m==> qemu:  11150K .......... .......... .......... .......... .......... 86% 1.51M 1s[0m
+[1;31m==> qemu:  11200K .......... .......... .......... .......... .......... 86% 1.60M 1s[0m
+[1;31m==> qemu:  11250K .......... .......... .......... .......... .......... 87% 1.71M 1s[0m
+[1;31m==> qemu:  11300K .......... .......... .......... .......... .......... 87% 2.03M 1s[0m
+[1;31m==> qemu:  11350K .......... .......... .......... .......... .......... 88% 1.37M 1s[0m
+[1;31m==> qemu:  11400K .......... .......... .......... .......... .......... 88% 2.40M 1s[0m
+[1;31m==> qemu:  11450K .......... .......... .......... .......... .......... 88% 1.41M 1s[0m
+[1;31m==> qemu:  11500K .......... .......... .......... .......... .......... 89% 1.48M 1s[0m
+[1;31m==> qemu:  11550K .......... .......... .......... .......... .......... 89% 1.70M 1s[0m
+[1;31m==> qemu:  11600K .......... .......... .......... .......... .......... 90% 1.86M 1s[0m
+[1;31m==> qemu:  11650K .......... .......... .......... .......... .......... 90% 1.88M 1s[0m
+[1;31m==> qemu:  11700K .......... .......... .......... .......... .......... 90% 2.04M 1s[0m
+[1;31m==> qemu:  11750K .......... .......... .......... .......... .......... 91% 1.31M 1s[0m
+[1;31m==> qemu:  11800K .......... .......... .......... .......... .......... 91% 1.60M 1s[0m
+[1;31m==> qemu:  11850K .......... .......... .......... .......... .......... 92% 1.90M 1s[0m
+[1;31m==> qemu:  11900K .......... .......... .......... .......... .......... 92% 2.17M 1s[0m
+[1;31m==> qemu:  11950K .......... .......... .......... .......... .......... 92% 1.59M 1s[0m
+[1;31m==> qemu:  12000K .......... .......... .......... .......... .......... 93% 2.85M 1s[0m
+[1;31m==> qemu:  12050K .......... .......... .......... .......... .......... 93% 2.07M 1s[0m
+[1;31m==> qemu:  12100K .......... .......... .......... .......... .......... 93% 1.95M 1s[0m
+[1;31m==> qemu:  12150K .......... .......... .......... .......... .......... 94% 1.12M 1s[0m
+[1;31m==> qemu:  12200K .......... .......... .......... .......... .......... 94% 1.82M 1s[0m
+[1;31m==> qemu:  12250K .......... .......... .......... .......... .......... 95% 3.00M 0s[0m
+[1;31m==> qemu:  12300K .......... .......... .......... .......... .......... 95% 1.39M 0s[0m
+[1;31m==> qemu:  12350K .......... .......... .......... .......... .......... 95% 2.40M 0s[0m
+[1;31m==> qemu:  12400K .......... .......... .......... .......... .......... 96% 1.76M 0s[0m
+[1;31m==> qemu:  12450K .......... .......... .......... .......... .......... 96% 1.72M 0s[0m
+[1;31m==> qemu:  12500K .......... .......... .......... .......... .......... 97% 1.94M 0s[0m
+[1;31m==> qemu:  12550K .......... .......... .......... .......... .......... 97% 2.02M 0s[0m
+[1;31m==> qemu:  12600K .......... .......... .......... .......... .......... 97% 2.09M 0s[0m
+[1;31m==> qemu:  12650K .......... .......... .......... .......... .......... 98% 1.83M 0s[0m
+[1;31m==> qemu:  12700K .......... .......... .......... .......... .......... 98% 2.25M 0s[0m
+[1;31m==> qemu:  12750K .......... .......... .......... .......... .......... 98% 1.59M 0s[0m
+[1;31m==> qemu:  12800K .......... .......... .......... .......... .......... 99% 2.90M 0s[0m
+[1;31m==> qemu:  12850K .......... .......... .......... .......... .......... 99% 2.01M 0s[0m
+[1;31m==> qemu:  12900K .......... .......... .......... ..                   100% 2.94M=9.4s[0m
+[1;31m==> qemu:[0m
+[1;31m==> qemu: 2023-09-09 13:27:13 (1.34 MB/s) - ‘cri-dockerd-0.3.4.amd64.tgz’ saved [13242440/13242440][0m
+[1;31m==> qemu:[0m
+[0;32m    qemu: cri-dockerd/[0m
+[0;32m    qemu: cri-dockerd/cri-dockerd[0m
+[1;31m==> qemu: Created symlink /etc/systemd/system/multi-user.target.wants/cri-docker.service → /etc/systemd/system/cri-docker.service.[0m
+[1;31m==> qemu: Created symlink /etc/systemd/system/sockets.target.wants/cri-docker.socket → /etc/systemd/system/cri-docker.socket.[0m
+[0;32m    qemu: ======= step 3. end[0m
+[1;32m==> qemu: Provisioning with shell script: /tmp/packer-shell2960963727[0m
+[0;32m    qemu: ======= step 3. download k8s images[0m
+[0;32m    qemu: registry.k8s.io/kube-apiserver:v1.28.1[0m
+[0;32m    qemu: registry.k8s.io/kube-controller-manager:v1.28.1[0m
+[0;32m    qemu: registry.k8s.io/kube-scheduler:v1.28.1[0m
+[0;32m    qemu: registry.k8s.io/kube-proxy:v1.28.1[0m
+[0;32m    qemu: registry.k8s.io/pause:3.9[0m
+[0;32m    qemu: registry.k8s.io/etcd:3.5.9-0[0m
+[0;32m    qemu: registry.k8s.io/coredns/coredns:v1.10.1[0m
+[1;31m==> qemu: I0909 13:27:52.345783    3639 interface.go:432] Looking for default routes with IPv4 addresses[0m
+[1;31m==> qemu: I0909 13:27:52.359145    3639 interface.go:437] Default route transits interface "ens4"[0m
+[1;31m==> qemu: I0909 13:27:52.368410    3639 interface.go:209] Interface ens4 is up[0m
+[1;31m==> qemu: I0909 13:27:52.376224    3639 interface.go:257] Interface "ens4" has 3 addresses :[10.0.2.15/24 fec0::5054:ff:fe12:3456/64 fe80::5054:ff:fe12:3456/64].[0m
+[1;31m==> qemu: I0909 13:27:52.380712    3639 interface.go:224] Checking addr  10.0.2.15/24.[0m
+[1;31m==> qemu: I0909 13:27:52.384014    3639 interface.go:231] IP found 10.0.2.15[0m
+[1;31m==> qemu: I0909 13:27:52.388832    3639 interface.go:263] Found valid IPv4 address 10.0.2.15 for interface "ens4".[0m
+[1;31m==> qemu: I0909 13:27:52.391755    3639 interface.go:443] Found active IP 10.0.2.15[0m
+[1;31m==> qemu: I0909 13:27:52.394481    3639 kubelet.go:196] the value of KubeletConfiguration.cgroupDriver is empty; setting it to "systemd"[0m
+[1;31m==> qemu: I0909 13:27:52.475397    3639 version.go:187] fetching Kubernetes version from URL: https://dl.k8s.io/release/stable-1.txt[0m
+[0;32m    qemu: [config/images] Pulled registry.k8s.io/kube-apiserver:v1.28.1[0m
+[0;32m    qemu: [config/images] Pulled registry.k8s.io/kube-controller-manager:v1.28.1[0m
+[0;32m    qemu: [config/images] Pulled registry.k8s.io/kube-scheduler:v1.28.1[0m
+[0;32m    qemu: [config/images] Pulled registry.k8s.io/kube-proxy:v1.28.1[0m
+[0;32m    qemu: [config/images] Pulled registry.k8s.io/pause:3.9[0m
+[0;32m    qemu: [config/images] Pulled registry.k8s.io/etcd:3.5.9-0[0m
+[0;32m    qemu: [config/images] Pulled registry.k8s.io/coredns/coredns:v1.10.1[0m
+[0;32m    qemu: ======= step 3.1 download calico[0m
+[0;32m    qemu: v3.26.1: Pulling from calico/cni[0m
+[0;32m    qemu: ead1d93126e2: Pulling fs layer[0m
+[0;32m    qemu: 263e6c47f9f4: Pulling fs layer[0m
+[0;32m    qemu: 3d817138ad22: Pulling fs layer[0m
+[0;32m    qemu: 81ce5fcda971: Pulling fs layer[0m
+[0;32m    qemu: 31f2a5683ad7: Pulling fs layer[0m
+[0;32m    qemu: 81ce5fcda971: Waiting[0m
+[0;32m    qemu: a13d92692813: Pulling fs layer[0m
+[0;32m    qemu: 85790a7a5aee: Pulling fs layer[0m
+[0;32m    qemu: a0ff5af14493: Pulling fs layer[0m
+[0;32m    qemu: cec6d7c8ed45: Pulling fs layer[0m
+[0;32m    qemu: 93a53306e2e3: Pulling fs layer[0m
+[0;32m    qemu: 32305daf6772: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Pulling fs layer[0m
+[0;32m    qemu: a13d92692813: Waiting[0m
+[0;32m    qemu: 85790a7a5aee: Waiting[0m
+[0;32m    qemu: a0ff5af14493: Waiting[0m
+[0;32m    qemu: cec6d7c8ed45: Waiting[0m
+[0;32m    qemu: 93a53306e2e3: Waiting[0m
+[0;32m    qemu: 32305daf6772: Waiting[0m
+[0;32m    qemu: 4f4fb700ef54: Waiting[0m
+[0;32m    qemu: 31f2a5683ad7: Waiting[0m
+[0;32m    qemu: 263e6c47f9f4: Verifying Checksum[0m
+[0;32m    qemu: 263e6c47f9f4: Download complete[0m
+[0;32m    qemu: ead1d93126e2: Download complete[0m
+[0;32m    qemu: ead1d93126e2: Pull complete[0m
+[0;32m    qemu: 263e6c47f9f4: Pull complete[0m
+[0;32m    qemu: 3d817138ad22: Verifying Checksum[0m
+[0;32m    qemu: 3d817138ad22: Download complete[0m
+[0;32m    qemu: 3d817138ad22: Pull complete[0m
+[0;32m    qemu: 81ce5fcda971: Verifying Checksum[0m
+[0;32m    qemu: 81ce5fcda971: Download complete[0m
+[0;32m    qemu: 81ce5fcda971: Pull complete[0m
+[0;32m    qemu: a13d92692813: Verifying Checksum[0m
+[0;32m    qemu: a13d92692813: Download complete[0m
+[0;32m    qemu: 85790a7a5aee: Verifying Checksum[0m
+[0;32m    qemu: 85790a7a5aee: Download complete[0m
+[0;32m    qemu: a0ff5af14493: Download complete[0m
+[0;32m    qemu: 31f2a5683ad7: Verifying Checksum[0m
+[0;32m    qemu: 31f2a5683ad7: Download complete[0m
+[0;32m    qemu: cec6d7c8ed45: Verifying Checksum[0m
+[0;32m    qemu: cec6d7c8ed45: Download complete[0m
+[0;32m    qemu: 31f2a5683ad7: Pull complete[0m
+[0;32m    qemu: a13d92692813: Pull complete[0m
+[0;32m    qemu: 93a53306e2e3: Verifying Checksum[0m
+[0;32m    qemu: 93a53306e2e3: Download complete[0m
+[0;32m    qemu: 85790a7a5aee: Pull complete[0m
+[0;32m    qemu: a0ff5af14493: Pull complete[0m
+[0;32m    qemu: cec6d7c8ed45: Pull complete[0m
+[0;32m    qemu: 93a53306e2e3: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Verifying Checksum[0m
+[0;32m    qemu: 4f4fb700ef54: Download complete[0m
+[0;32m    qemu: 32305daf6772: Verifying Checksum[0m
+[0;32m    qemu: 32305daf6772: Download complete[0m
+[0;32m    qemu: 32305daf6772: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Pull complete[0m
+[0;32m    qemu: Digest: sha256:3be3c67ddba17004c292eafec98cc49368ac273b40b27c8a6621be4471d348d6[0m
+[0;32m    qemu: Status: Downloaded newer image for calico/cni:v3.26.1[0m
+[0;32m    qemu: docker.io/calico/cni:v3.26.1[0m
+[0;32m    qemu: ======= step 3.2 download google demo images[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/emailservice[0m
+[0;32m    qemu: 025c56f98b67: Pulling fs layer[0m
+[0;32m    qemu: 778656c04542: Pulling fs layer[0m
+[0;32m    qemu: 85485c9f43dd: Pulling fs layer[0m
+[0;32m    qemu: 23b3c91f0de2: Pulling fs layer[0m
+[0;32m    qemu: fd19b936aab8: Pulling fs layer[0m
+[0;32m    qemu: 3121ef34664d: Pulling fs layer[0m
+[0;32m    qemu: d124dd6dba77: Pulling fs layer[0m
+[0;32m    qemu: a9092534a39c: Pulling fs layer[0m
+[0;32m    qemu: 23b3c91f0de2: Waiting[0m
+[0;32m    qemu: fd19b936aab8: Waiting[0m
+[0;32m    qemu: 3121ef34664d: Waiting[0m
+[0;32m    qemu: d124dd6dba77: Waiting[0m
+[0;32m    qemu: a9092534a39c: Waiting[0m
+[0;32m    qemu: 778656c04542: Verifying Checksum[0m
+[0;32m    qemu: 778656c04542: Download complete[0m
+[0;32m    qemu: 23b3c91f0de2: Download complete[0m
+[0;32m    qemu: fd19b936aab8: Verifying Checksum[0m
+[0;32m    qemu: fd19b936aab8: Download complete[0m
+[0;32m    qemu: 3121ef34664d: Verifying Checksum[0m
+[0;32m    qemu: 3121ef34664d: Download complete[0m
+[0;32m    qemu: 85485c9f43dd: Verifying Checksum[0m
+[0;32m    qemu: 85485c9f43dd: Download complete[0m
+[0;32m    qemu: a9092534a39c: Verifying Checksum[0m
+[0;32m    qemu: a9092534a39c: Download complete[0m
+[0;32m    qemu: 025c56f98b67: Verifying Checksum[0m
+[0;32m    qemu: 025c56f98b67: Download complete[0m
+[0;32m    qemu: d124dd6dba77: Verifying Checksum[0m
+[0;32m    qemu: d124dd6dba77: Download complete[0m
+[0;32m    qemu: 025c56f98b67: Pull complete[0m
+[0;32m    qemu: 778656c04542: Pull complete[0m
+[0;32m    qemu: 85485c9f43dd: Pull complete[0m
+[0;32m    qemu: 23b3c91f0de2: Pull complete[0m
+[0;32m    qemu: fd19b936aab8: Pull complete[0m
+[0;32m    qemu: 3121ef34664d: Pull complete[0m
+[0;32m    qemu: d124dd6dba77: Pull complete[0m
+[0;32m    qemu: a9092534a39c: Pull complete[0m
+[0;32m    qemu: Digest: sha256:53d0416f79e3d4ba8d2092d7c48880375e3398f6e086996aa12b2e68d0a04976[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/emailservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/emailservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/checkoutservice[0m
+[0;32m    qemu: 8a49fdb3b6a5: Pulling fs layer[0m
+[0;32m    qemu: d23f5e011227: Pulling fs layer[0m
+[0;32m    qemu: 28409566f74d: Pulling fs layer[0m
+[0;32m    qemu: 1a71fc57fa9c: Pulling fs layer[0m
+[0;32m    qemu: 1a71fc57fa9c: Waiting[0m
+[0;32m    qemu: 28409566f74d: Verifying Checksum[0m
+[0;32m    qemu: 28409566f74d: Download complete[0m
+[0;32m    qemu: d23f5e011227: Verifying Checksum[0m
+[0;32m    qemu: d23f5e011227: Download complete[0m
+[0;32m    qemu: 8a49fdb3b6a5: Verifying Checksum[0m
+[0;32m    qemu: 8a49fdb3b6a5: Download complete[0m
+[0;32m    qemu: 8a49fdb3b6a5: Pull complete[0m
+[0;32m    qemu: d23f5e011227: Pull complete[0m
+[0;32m    qemu: 28409566f74d: Pull complete[0m
+[0;32m    qemu: 1a71fc57fa9c: Download complete[0m
+[0;32m    qemu: 1a71fc57fa9c: Pull complete[0m
+[0;32m    qemu: Digest: sha256:c703e33e1c7ef6e0cdfee582b4b948159b964d502d352d14ed452df2e5a40734[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/checkoutservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/checkoutservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/recommendationservice[0m
+[0;32m    qemu: 025c56f98b67: Already exists[0m
+[0;32m    qemu: 778656c04542: Already exists[0m
+[0;32m    qemu: 85485c9f43dd: Already exists[0m
+[0;32m    qemu: 23b3c91f0de2: Already exists[0m
+[0;32m    qemu: fd19b936aab8: Already exists[0m
+[0;32m    qemu: 0daebbdbd576: Pulling fs layer[0m
+[0;32m    qemu: af306abb4529: Pulling fs layer[0m
+[0;32m    qemu: 51cca311d72b: Pulling fs layer[0m
+[0;32m    qemu: 0daebbdbd576: Verifying Checksum[0m
+[0;32m    qemu: 0daebbdbd576: Download complete[0m
+[0;32m    qemu: 51cca311d72b: Verifying Checksum[0m
+[0;32m    qemu: 51cca311d72b: Download complete[0m
+[0;32m    qemu: 0daebbdbd576: Pull complete[0m
+[0;32m    qemu: af306abb4529: Verifying Checksum[0m
+[0;32m    qemu: af306abb4529: Download complete[0m
+[0;32m    qemu: af306abb4529: Pull complete[0m
+[0;32m    qemu: 51cca311d72b: Pull complete[0m
+[0;32m    qemu: Digest: sha256:f3548c0c199e5eeef1a5f497fedae1592a19d8fa0d8337c351281668637cf477[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/recommendationservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/recommendationservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/frontend[0m
+[0;32m    qemu: 8a49fdb3b6a5: Already exists[0m
+[0;32m    qemu: 55f5c71213c0: Pulling fs layer[0m
+[0;32m    qemu: 11af97119af3: Pulling fs layer[0m
+[0;32m    qemu: 672e327d5ec3: Pulling fs layer[0m
+[0;32m    qemu: 23610e9df545: Pulling fs layer[0m
+[0;32m    qemu: 1b31281213c8: Pulling fs layer[0m
+[0;32m    qemu: 23610e9df545: Waiting[0m
+[0;32m    qemu: 1b31281213c8: Waiting[0m
+[0;32m    qemu: 11af97119af3: Verifying Checksum[0m
+[0;32m    qemu: 11af97119af3: Download complete[0m
+[0;32m    qemu: 55f5c71213c0: Verifying Checksum[0m
+[0;32m    qemu: 55f5c71213c0: Download complete[0m
+[0;32m    qemu: 23610e9df545: Verifying Checksum[0m
+[0;32m    qemu: 23610e9df545: Download complete[0m
+[0;32m    qemu: 1b31281213c8: Verifying Checksum[0m
+[0;32m    qemu: 1b31281213c8: Download complete[0m
+[0;32m    qemu: 55f5c71213c0: Pull complete[0m
+[0;32m    qemu: 11af97119af3: Pull complete[0m
+[0;32m    qemu: 672e327d5ec3: Verifying Checksum[0m
+[0;32m    qemu: 672e327d5ec3: Download complete[0m
+[0;32m    qemu: 672e327d5ec3: Pull complete[0m
+[0;32m    qemu: 23610e9df545: Pull complete[0m
+[0;32m    qemu: 1b31281213c8: Pull complete[0m
+[0;32m    qemu: Digest: sha256:048d9344b759afffd52f4585fb11ee5842f013857eec1136b60973f9ee2fc8f0[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/frontend:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/frontend:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/paymentservice[0m
+[0;32m    qemu: 8a49fdb3b6a5: Already exists[0m
+[0;32m    qemu: d83431ac40fe: Pulling fs layer[0m
+[0;32m    qemu: 1108b0e6bd13: Pulling fs layer[0m
+[0;32m    qemu: 8bbef657d5db: Pulling fs layer[0m
+[0;32m    qemu: 31a02255bb45: Pulling fs layer[0m
+[0;32m    qemu: 98f9593bc3f5: Pulling fs layer[0m
+[0;32m    qemu: 7f72d105f5de: Pulling fs layer[0m
+[0;32m    qemu: 31a02255bb45: Waiting[0m
+[0;32m    qemu: 98f9593bc3f5: Waiting[0m
+[0;32m    qemu: 7f72d105f5de: Waiting[0m
+[0;32m    qemu: 8bbef657d5db: Verifying Checksum[0m
+[0;32m    qemu: 8bbef657d5db: Download complete[0m
+[0;32m    qemu: 1108b0e6bd13: Download complete[0m
+[0;32m    qemu: 31a02255bb45: Verifying Checksum[0m
+[0;32m    qemu: 31a02255bb45: Download complete[0m
+[0;32m    qemu: 7f72d105f5de: Download complete[0m
+[0;32m    qemu: 98f9593bc3f5: Verifying Checksum[0m
+[0;32m    qemu: 98f9593bc3f5: Download complete[0m
+[0;32m    qemu: d83431ac40fe: Verifying Checksum[0m
+[0;32m    qemu: d83431ac40fe: Download complete[0m
+[0;32m    qemu: d83431ac40fe: Pull complete[0m
+[0;32m    qemu: 1108b0e6bd13: Pull complete[0m
+[0;32m    qemu: 8bbef657d5db: Pull complete[0m
+[0;32m    qemu: 31a02255bb45: Pull complete[0m
+[0;32m    qemu: 98f9593bc3f5: Pull complete[0m
+[0;32m    qemu: 7f72d105f5de: Pull complete[0m
+[0;32m    qemu: Digest: sha256:2bb8061c4c31b3762eb4d9effd64b9a31abbb92b37e44f66a79615bfe5890c22[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/paymentservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/paymentservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/productcatalogservice[0m
+[0;32m    qemu: 8a49fdb3b6a5: Already exists[0m
+[0;32m    qemu: d23f5e011227: Already exists[0m
+[0;32m    qemu: 28409566f74d: Already exists[0m
+[0;32m    qemu: 9870ec8375b6: Pulling fs layer[0m
+[0;32m    qemu: 016c7ebe0228: Pulling fs layer[0m
+[0;32m    qemu: 016c7ebe0228: Verifying Checksum[0m
+[0;32m    qemu: 016c7ebe0228: Download complete[0m
+[0;32m    qemu: 9870ec8375b6: Verifying Checksum[0m
+[0;32m    qemu: 9870ec8375b6: Download complete[0m
+[0;32m    qemu: 9870ec8375b6: Pull complete[0m
+[0;32m    qemu: 016c7ebe0228: Pull complete[0m
+[0;32m    qemu: Digest: sha256:ff410df246703eccf2cd1da81baeb22d4a715450f2ca8c13d357d6b2c33cffbd[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/cartservice[0m
+[0;32m    qemu: 31e352740f53: Pulling fs layer[0m
+[0;32m    qemu: 28eab0c0a447: Pulling fs layer[0m
+[0;32m    qemu: 47bd71091e25: Pulling fs layer[0m
+[0;32m    qemu: a43d21aa97e1: Pulling fs layer[0m
+[0;32m    qemu: a43d21aa97e1: Waiting[0m
+[0;32m    qemu: 47bd71091e25: Verifying Checksum[0m
+[0;32m    qemu: 47bd71091e25: Download complete[0m
+[0;32m    qemu: 28eab0c0a447: Verifying Checksum[0m
+[0;32m    qemu: 28eab0c0a447: Download complete[0m
+[0;32m    qemu: 31e352740f53: Verifying Checksum[0m
+[0;32m    qemu: 31e352740f53: Download complete[0m
+[0;32m    qemu: 31e352740f53: Pull complete[0m
+[0;32m    qemu: 28eab0c0a447: Pull complete[0m
+[0;32m    qemu: 47bd71091e25: Pull complete[0m
+[0;32m    qemu: a43d21aa97e1: Verifying Checksum[0m
+[0;32m    qemu: a43d21aa97e1: Download complete[0m
+[0;32m    qemu: a43d21aa97e1: Pull complete[0m
+[0;32m    qemu: Digest: sha256:49a71db4bf4cf0a4c0e789f3cb092950a53686087e619a8ad6b02c679ba135e3[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/cartservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/cartservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/loadgenerator[0m
+[0;32m    qemu: 01b5b2efb836: Pulling fs layer[0m
+[0;32m    qemu: 5dda314a937a: Pulling fs layer[0m
+[0;32m    qemu: 09f5525c15a3: Pulling fs layer[0m
+[0;32m    qemu: 99cdff813800: Pulling fs layer[0m
+[0;32m    qemu: 7648ab525d5f: Pulling fs layer[0m
+[0;32m    qemu: d0646fa9a054: Pulling fs layer[0m
+[0;32m    qemu: 86b35d855979: Pulling fs layer[0m
+[0;32m    qemu: ae55fa40a3c0: Pulling fs layer[0m
+[0;32m    qemu: 99cdff813800: Waiting[0m
+[0;32m    qemu: 7648ab525d5f: Waiting[0m
+[0;32m    qemu: d0646fa9a054: Waiting[0m
+[0;32m    qemu: 86b35d855979: Waiting[0m
+[0;32m    qemu: ae55fa40a3c0: Waiting[0m
+[0;32m    qemu: 5dda314a937a: Verifying Checksum[0m
+[0;32m    qemu: 5dda314a937a: Download complete[0m
+[0;32m    qemu: 99cdff813800: Verifying Checksum[0m
+[0;32m    qemu: 99cdff813800: Download complete[0m
+[0;32m    qemu: 7648ab525d5f: Verifying Checksum[0m
+[0;32m    qemu: 7648ab525d5f: Download complete[0m
+[0;32m    qemu: d0646fa9a054: Verifying Checksum[0m
+[0;32m    qemu: d0646fa9a054: Download complete[0m
+[0;32m    qemu: 09f5525c15a3: Verifying Checksum[0m
+[0;32m    qemu: 09f5525c15a3: Download complete[0m
+[0;32m    qemu: ae55fa40a3c0: Verifying Checksum[0m
+[0;32m    qemu: ae55fa40a3c0: Download complete[0m
+[0;32m    qemu: 86b35d855979: Verifying Checksum[0m
+[0;32m    qemu: 86b35d855979: Download complete[0m
+[0;32m    qemu: 01b5b2efb836: Verifying Checksum[0m
+[0;32m    qemu: 01b5b2efb836: Download complete[0m
+[0;32m    qemu: 01b5b2efb836: Pull complete[0m
+[0;32m    qemu: 5dda314a937a: Pull complete[0m
+[0;32m    qemu: 09f5525c15a3: Pull complete[0m
+[0;32m    qemu: 99cdff813800: Pull complete[0m
+[0;32m    qemu: 7648ab525d5f: Pull complete[0m
+[0;32m    qemu: d0646fa9a054: Pull complete[0m
+[0;32m    qemu: 86b35d855979: Pull complete[0m
+[0;32m    qemu: ae55fa40a3c0: Pull complete[0m
+[0;32m    qemu: Digest: sha256:808cbad6d20592fa9ce8fb296f4f90a8f6f3b6928d61e6c5d1d2b4827c06faa0[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/loadgenerator:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/loadgenerator:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/currencyservice[0m
+[0;32m    qemu: 8a49fdb3b6a5: Already exists[0m
+[0;32m    qemu: d83431ac40fe: Already exists[0m
+[0;32m    qemu: 1108b0e6bd13: Already exists[0m
+[0;32m    qemu: 8bbef657d5db: Already exists[0m
+[0;32m    qemu: 31a02255bb45: Already exists[0m
+[0;32m    qemu: 0fbcd846e4e0: Pulling fs layer[0m
+[0;32m    qemu: a6a07c657fb0: Pulling fs layer[0m
+[0;32m    qemu: a6a07c657fb0: Verifying Checksum[0m
+[0;32m    qemu: a6a07c657fb0: Download complete[0m
+[0;32m    qemu: 0fbcd846e4e0: Verifying Checksum[0m
+[0;32m    qemu: 0fbcd846e4e0: Download complete[0m
+[0;32m    qemu: 0fbcd846e4e0: Pull complete[0m
+[0;32m    qemu: a6a07c657fb0: Pull complete[0m
+[0;32m    qemu: Digest: sha256:bd0fa063169b5fab3461c2b21022714bf5c1429b25334e667700a41e5bd2ab30[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/currencyservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/shippingservice[0m
+[0;32m    qemu: 8a49fdb3b6a5: Already exists[0m
+[0;32m    qemu: d23f5e011227: Already exists[0m
+[0;32m    qemu: 28409566f74d: Already exists[0m
+[0;32m    qemu: f53a933799e7: Pulling fs layer[0m
+[0;32m    qemu: f53a933799e7: Verifying Checksum[0m
+[0;32m    qemu: f53a933799e7: Download complete[0m
+[0;32m    qemu: f53a933799e7: Pull complete[0m
+[0;32m    qemu: Digest: sha256:9fe197811cb01ba7087f8b9160eae6094864d56cd9d79af4d38f2d3d65bc4aac[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/shippingservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/shippingservice:v0.8.0[0m
+[0;32m    qemu: v0.8.0: Pulling from google-samples/microservices-demo/adservice[0m
+[0;32m    qemu: 8921db27df28: Pulling fs layer[0m
+[0;32m    qemu: 846e3b32ee5a: Pulling fs layer[0m
+[0;32m    qemu: a8cf960fcec5: Pulling fs layer[0m
+[0;32m    qemu: 02a6b95e4384: Pulling fs layer[0m
+[0;32m    qemu: 00a80ffa3ccf: Pulling fs layer[0m
+[0;32m    qemu: c6a19ad0d9f4: Pulling fs layer[0m
+[0;32m    qemu: 250facebdd9d: Pulling fs layer[0m
+[0;32m    qemu: 561b7e131af1: Pulling fs layer[0m
+[0;32m    qemu: 02a6b95e4384: Waiting[0m
+[0;32m    qemu: 00a80ffa3ccf: Waiting[0m
+[0;32m    qemu: c6a19ad0d9f4: Waiting[0m
+[0;32m    qemu: 250facebdd9d: Waiting[0m
+[0;32m    qemu: 561b7e131af1: Waiting[0m
+[0;32m    qemu: 8921db27df28: Verifying Checksum[0m
+[0;32m    qemu: 8921db27df28: Download complete[0m
+[0;32m    qemu: 02a6b95e4384: Verifying Checksum[0m
+[0;32m    qemu: 02a6b95e4384: Download complete[0m
+[0;32m    qemu: 8921db27df28: Pull complete[0m
+[0;32m    qemu: 00a80ffa3ccf: Verifying Checksum[0m
+[0;32m    qemu: 00a80ffa3ccf: Download complete[0m
+[0;32m    qemu: c6a19ad0d9f4: Verifying Checksum[0m
+[0;32m    qemu: c6a19ad0d9f4: Download complete[0m
+[0;32m    qemu: 846e3b32ee5a: Verifying Checksum[0m
+[0;32m    qemu: 846e3b32ee5a: Download complete[0m
+[0;32m    qemu: 250facebdd9d: Verifying Checksum[0m
+[0;32m    qemu: 250facebdd9d: Download complete[0m
+[0;32m    qemu: 846e3b32ee5a: Pull complete[0m
+[0;32m    qemu: 561b7e131af1: Verifying Checksum[0m
+[0;32m    qemu: 561b7e131af1: Download complete[0m
+[0;32m    qemu: a8cf960fcec5: Verifying Checksum[0m
+[0;32m    qemu: a8cf960fcec5: Download complete[0m
+[0;32m    qemu: a8cf960fcec5: Pull complete[0m
+[0;32m    qemu: 02a6b95e4384: Pull complete[0m
+[0;32m    qemu: 00a80ffa3ccf: Pull complete[0m
+[0;32m    qemu: c6a19ad0d9f4: Pull complete[0m
+[0;32m    qemu: 250facebdd9d: Pull complete[0m
+[0;32m    qemu: 561b7e131af1: Pull complete[0m
+[0;32m    qemu: Digest: sha256:45fb8ed886902c0c49e044b1f8870fad61c1022fa23c4943098302a8f1c5b75f[0m
+[0;32m    qemu: Status: Downloaded newer image for gcr.io/google-samples/microservices-demo/adservice:v0.8.0[0m
+[0;32m    qemu: gcr.io/google-samples/microservices-demo/adservice:v0.8.0[0m
+[0;32m    qemu: v0.6.4: Pulling from metrics-server/metrics-server[0m
+[0;32m    qemu: a7ca0d9ba68f: Already exists[0m
+[0;32m    qemu: fe5ca62666f0: Already exists[0m
+[0;32m    qemu: b02a7525f878: Already exists[0m
+[0;32m    qemu: fcb6f6d2c998: Already exists[0m
+[0;32m    qemu: e8c73c638ae9: Already exists[0m
+[0;32m    qemu: 1e3d9b7d1452: Already exists[0m
+[0;32m    qemu: 4aa0ea1413d3: Already exists[0m
+[0;32m    qemu: 7c881f9ab25e: Already exists[0m
+[0;32m    qemu: 5627a970d25e: Already exists[0m
+[0;32m    qemu: c11e15826cd6: Pulling fs layer[0m
+[0;32m    qemu: c11e15826cd6: Verifying Checksum[0m
+[0;32m    qemu: c11e15826cd6: Download complete[0m
+[0;32m    qemu: c11e15826cd6: Pull complete[0m
+[0;32m    qemu: Digest: sha256:ee4304963fb035239bb5c5e8c10f2f38ee80efc16ecbdb9feb7213c17ae2e86e[0m
+[0;32m    qemu: Status: Downloaded newer image for registry.k8s.io/metrics-server/metrics-server:v0.6.4[0m
+[0;32m    qemu: registry.k8s.io/metrics-server/metrics-server:v0.6.4[0m
+[0;32m    qemu: 1.18.2: Pulling from istio/proxyv2[0m
+[0;32m    qemu: db73f72db882: Pulling fs layer[0m
+[0;32m    qemu: 01836c8c7311: Pulling fs layer[0m
+[0;32m    qemu: ae7aecfd342a: Pulling fs layer[0m
+[0;32m    qemu: 624657df1a02: Pulling fs layer[0m
+[0;32m    qemu: cdbca4304b0c: Pulling fs layer[0m
+[0;32m    qemu: 83785a5878cd: Pulling fs layer[0m
+[0;32m    qemu: e898ca686bd8: Pulling fs layer[0m
+[0;32m    qemu: 624657df1a02: Waiting[0m
+[0;32m    qemu: cdbca4304b0c: Waiting[0m
+[0;32m    qemu: 83785a5878cd: Waiting[0m
+[0;32m    qemu: e898ca686bd8: Waiting[0m
+[0;32m    qemu: ae7aecfd342a: Verifying Checksum[0m
+[0;32m    qemu: ae7aecfd342a: Download complete[0m
+[0;32m    qemu: 624657df1a02: Verifying Checksum[0m
+[0;32m    qemu: 624657df1a02: Download complete[0m
+[0;32m    qemu: cdbca4304b0c: Verifying Checksum[0m
+[0;32m    qemu: cdbca4304b0c: Download complete[0m
+[0;32m    qemu: 01836c8c7311: Verifying Checksum[0m
+[0;32m    qemu: 01836c8c7311: Download complete[0m
+[0;32m    qemu: db73f72db882: Verifying Checksum[0m
+[0;32m    qemu: db73f72db882: Download complete[0m
+[0;32m    qemu: e898ca686bd8: Verifying Checksum[0m
+[0;32m    qemu: e898ca686bd8: Download complete[0m
+[0;32m    qemu: 83785a5878cd: Verifying Checksum[0m
+[0;32m    qemu: 83785a5878cd: Download complete[0m
+[0;32m    qemu: db73f72db882: Pull complete[0m
+[0;32m    qemu: 01836c8c7311: Pull complete[0m
+[0;32m    qemu: ae7aecfd342a: Pull complete[0m
+[0;32m    qemu: 624657df1a02: Pull complete[0m
+[0;32m    qemu: cdbca4304b0c: Pull complete[0m
+[0;32m    qemu: 83785a5878cd: Pull complete[0m
+[0;32m    qemu: e898ca686bd8: Pull complete[0m
+[0;32m    qemu: Digest: sha256:b71f2657e038a0d6092dfd954050a2783c7887ff8e72f77ce64840c0c39b076e[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/proxyv2:1.18.2[0m
+[0;32m    qemu: docker.io/istio/proxyv2:1.18.2[0m
+[0;32m    qemu: 2.7.3: Pulling from grafana/loki[0m
+[0;32m    qemu: 213ec9aee27d: Pulling fs layer[0m
+[0;32m    qemu: a96ec1aeef86: Pulling fs layer[0m
+[0;32m    qemu: d60cbb7c1cab: Pulling fs layer[0m
+[0;32m    qemu: d3b60d5d96b3: Pulling fs layer[0m
+[0;32m    qemu: 309d34c87878: Pulling fs layer[0m
+[0;32m    qemu: 7f2e3ce5bac9: Pulling fs layer[0m
+[0;32m    qemu: 6a81066b2c8a: Pulling fs layer[0m
+[0;32m    qemu: d3b60d5d96b3: Waiting[0m
+[0;32m    qemu: 309d34c87878: Waiting[0m
+[0;32m    qemu: 7f2e3ce5bac9: Waiting[0m
+[0;32m    qemu: 6a81066b2c8a: Waiting[0m
+[0;32m    qemu: a96ec1aeef86: Verifying Checksum[0m
+[0;32m    qemu: a96ec1aeef86: Download complete[0m
+[0;32m    qemu: d3b60d5d96b3: Download complete[0m
+[0;32m    qemu: 309d34c87878: Verifying Checksum[0m
+[0;32m    qemu: 309d34c87878: Download complete[0m
+[0;32m    qemu: 7f2e3ce5bac9: Verifying Checksum[0m
+[0;32m    qemu: 7f2e3ce5bac9: Download complete[0m
+[0;32m    qemu: 6a81066b2c8a: Verifying Checksum[0m
+[0;32m    qemu: 6a81066b2c8a: Download complete[0m
+[0;32m    qemu: 213ec9aee27d: Verifying Checksum[0m
+[0;32m    qemu: 213ec9aee27d: Download complete[0m
+[0;32m    qemu: 213ec9aee27d: Pull complete[0m
+[0;32m    qemu: a96ec1aeef86: Pull complete[0m
+[0;32m    qemu: d60cbb7c1cab: Verifying Checksum[0m
+[0;32m    qemu: d60cbb7c1cab: Download complete[0m
+[0;32m    qemu: d60cbb7c1cab: Pull complete[0m
+[0;32m    qemu: d3b60d5d96b3: Pull complete[0m
+[0;32m    qemu: 309d34c87878: Pull complete[0m
+[0;32m    qemu: 7f2e3ce5bac9: Pull complete[0m
+[0;32m    qemu: 6a81066b2c8a: Pull complete[0m
+[0;32m    qemu: Digest: sha256:0c86eba2dee75220d99b604503a91bc07532d238454fcfd712ec60d9d8a43c5d[0m
+[0;32m    qemu: Status: Downloaded newer image for grafana/loki:2.7.3[0m
+[0;32m    qemu: docker.io/grafana/loki:2.7.3[0m
+[0;32m    qemu: ======= step 3.3 download bookinfo images[0m
+[0;32m    qemu: 1.17.0: Pulling from istio/examples-bookinfo-details-v1[0m
+[0;32m    qemu: d121f8d1c412: Pulling fs layer[0m
+[0;32m    qemu: d8d1800b03c0: Pulling fs layer[0m
+[0;32m    qemu: 410c72b76baf: Pulling fs layer[0m
+[0;32m    qemu: 026a6f0bbb70: Pulling fs layer[0m
+[0;32m    qemu: 406c804a91c2: Pulling fs layer[0m
+[0;32m    qemu: 5fb8dacec8f6: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Pulling fs layer[0m
+[0;32m    qemu: 026a6f0bbb70: Waiting[0m
+[0;32m    qemu: 406c804a91c2: Waiting[0m
+[0;32m    qemu: 5fb8dacec8f6: Waiting[0m
+[0;32m    qemu: 4f4fb700ef54: Waiting[0m
+[0;32m    qemu: 410c72b76baf: Verifying Checksum[0m
+[0;32m    qemu: 410c72b76baf: Download complete[0m
+[0;32m    qemu: d8d1800b03c0: Verifying Checksum[0m
+[0;32m    qemu: d8d1800b03c0: Download complete[0m
+[0;32m    qemu: 406c804a91c2: Verifying Checksum[0m
+[0;32m    qemu: 406c804a91c2: Download complete[0m
+[0;32m    qemu: 026a6f0bbb70: Verifying Checksum[0m
+[0;32m    qemu: 026a6f0bbb70: Download complete[0m
+[0;32m    qemu: 5fb8dacec8f6: Verifying Checksum[0m
+[0;32m    qemu: 5fb8dacec8f6: Download complete[0m
+[0;32m    qemu: 4f4fb700ef54: Verifying Checksum[0m
+[0;32m    qemu: 4f4fb700ef54: Download complete[0m
+[0;32m    qemu: d121f8d1c412: Verifying Checksum[0m
+[0;32m    qemu: d121f8d1c412: Download complete[0m
+[0;32m    qemu: d121f8d1c412: Pull complete[0m
+[0;32m    qemu: d8d1800b03c0: Pull complete[0m
+[0;32m    qemu: 410c72b76baf: Pull complete[0m
+[0;32m    qemu: 026a6f0bbb70: Pull complete[0m
+[0;32m    qemu: 406c804a91c2: Pull complete[0m
+[0;32m    qemu: 5fb8dacec8f6: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Pull complete[0m
+[0;32m    qemu: Digest: sha256:2b081e3c86dd8105040ea1f2adcc94cb473f41249dc9c91ebc1c2885ddd56c13[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/examples-bookinfo-details-v1:1.17.0[0m
+[0;32m    qemu: docker.io/istio/examples-bookinfo-details-v1:1.17.0[0m
+[0;32m    qemu: Using default tag: latest[0m
+[0;32m    qemu: latest: Pulling from kong/httpbin[0m
+[0;32m    qemu: d7bfe07ed847: Pulling fs layer[0m
+[0;32m    qemu: 9e699467b1ea: Pulling fs layer[0m
+[0;32m    qemu: d4f997260b82: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Pulling fs layer[0m
+[0;32m    qemu: b903bc7a0f47: Pulling fs layer[0m
+[0;32m    qemu: 2eaa2424421f: Pulling fs layer[0m
+[0;32m    qemu: 1a6e719c3286: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Waiting[0m
+[0;32m    qemu: b903bc7a0f47: Waiting[0m
+[0;32m    qemu: 2eaa2424421f: Waiting[0m
+[0;32m    qemu: 1a6e719c3286: Waiting[0m
+[0;32m    qemu: d4f997260b82: Verifying Checksum[0m
+[0;32m    qemu: d4f997260b82: Download complete[0m
+[0;32m    qemu: 4f4fb700ef54: Verifying Checksum[0m
+[0;32m    qemu: 4f4fb700ef54: Download complete[0m
+[0;32m    qemu: d7bfe07ed847: Verifying Checksum[0m
+[0;32m    qemu: d7bfe07ed847: Download complete[0m
+[0;32m    qemu: 2eaa2424421f: Verifying Checksum[0m
+[0;32m    qemu: 2eaa2424421f: Download complete[0m
+[0;32m    qemu: 1a6e719c3286: Download complete[0m
+[0;32m    qemu: b903bc7a0f47: Verifying Checksum[0m
+[0;32m    qemu: b903bc7a0f47: Download complete[0m
+[0;32m    qemu: d7bfe07ed847: Pull complete[0m
+[0;32m    qemu: 9e699467b1ea: Verifying Checksum[0m
+[0;32m    qemu: 9e699467b1ea: Download complete[0m
+[0;32m    qemu: 9e699467b1ea: Pull complete[0m
+[0;32m    qemu: d4f997260b82: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Pull complete[0m
+[0;32m    qemu: b903bc7a0f47: Pull complete[0m
+[0;32m    qemu: 2eaa2424421f: Pull complete[0m
+[0;32m    qemu: 1a6e719c3286: Pull complete[0m
+[0;32m    qemu: Digest: sha256:b9bfd44e6aca835b6622fc0ebb03372792ac3fb5c36477c3c970691a7e30bb20[0m
+[0;32m    qemu: Status: Downloaded newer image for kong/httpbin:latest[0m
+[0;32m    qemu: docker.io/kong/httpbin:latest[0m
+[0;32m    qemu: 1.17.0: Pulling from istio/examples-bookinfo-productpage-v1[0m
+[0;32m    qemu: 8559a31e96f4: Pulling fs layer[0m
+[0;32m    qemu: 62e60f3ef11e: Pulling fs layer[0m
+[0;32m    qemu: 286adfd1ee25: Pulling fs layer[0m
+[0;32m    qemu: 8973789a3a6b: Pulling fs layer[0m
+[0;32m    qemu: 9b8d369425a7: Pulling fs layer[0m
+[0;32m    qemu: 45bb12f30dbc: Pulling fs layer[0m
+[0;32m    qemu: fc8b5612ca1c: Pulling fs layer[0m
+[0;32m    qemu: 3e6954b9f53d: Pulling fs layer[0m
+[0;32m    qemu: 60152d8c7e58: Pulling fs layer[0m
+[0;32m    qemu: 4d8f983b9409: Pulling fs layer[0m
+[0;32m    qemu: f0d385058baf: Pulling fs layer[0m
+[0;32m    qemu: d429da37232e: Pulling fs layer[0m
+[0;32m    qemu: c08fb178fcf8: Pulling fs layer[0m
+[0;32m    qemu: a30b5f3bcbdc: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Pulling fs layer[0m
+[0;32m    qemu: defc859ae4c9: Pulling fs layer[0m
+[0;32m    qemu: 8973789a3a6b: Waiting[0m
+[0;32m    qemu: 9b8d369425a7: Waiting[0m
+[0;32m    qemu: 45bb12f30dbc: Waiting[0m
+[0;32m    qemu: fc8b5612ca1c: Waiting[0m
+[0;32m    qemu: 3e6954b9f53d: Waiting[0m
+[0;32m    qemu: 60152d8c7e58: Waiting[0m
+[0;32m    qemu: 4d8f983b9409: Waiting[0m
+[0;32m    qemu: f0d385058baf: Waiting[0m
+[0;32m    qemu: d429da37232e: Waiting[0m
+[0;32m    qemu: c08fb178fcf8: Waiting[0m
+[0;32m    qemu: a30b5f3bcbdc: Waiting[0m
+[0;32m    qemu: 4f4fb700ef54: Waiting[0m
+[0;32m    qemu: defc859ae4c9: Waiting[0m
+[0;32m    qemu: 62e60f3ef11e: Verifying Checksum[0m
+[0;32m    qemu: 62e60f3ef11e: Download complete[0m
+[0;32m    qemu: 8973789a3a6b: Verifying Checksum[0m
+[0;32m    qemu: 8973789a3a6b: Download complete[0m
+[0;32m    qemu: 9b8d369425a7: Verifying Checksum[0m
+[0;32m    qemu: 9b8d369425a7: Download complete[0m
+[0;32m    qemu: 45bb12f30dbc: Verifying Checksum[0m
+[0;32m    qemu: 45bb12f30dbc: Download complete[0m
+[0;32m    qemu: 286adfd1ee25: Verifying Checksum[0m
+[0;32m    qemu: 286adfd1ee25: Download complete[0m
+[0;32m    qemu: fc8b5612ca1c: Verifying Checksum[0m
+[0;32m    qemu: fc8b5612ca1c: Download complete[0m
+[0;32m    qemu: 3e6954b9f53d: Verifying Checksum[0m
+[0;32m    qemu: 3e6954b9f53d: Download complete[0m
+[0;32m    qemu: 60152d8c7e58: Verifying Checksum[0m
+[0;32m    qemu: 60152d8c7e58: Download complete[0m
+[0;32m    qemu: 4d8f983b9409: Download complete[0m
+[0;32m    qemu: 8559a31e96f4: Verifying Checksum[0m
+[0;32m    qemu: 8559a31e96f4: Download complete[0m
+[0;32m    qemu: f0d385058baf: Verifying Checksum[0m
+[0;32m    qemu: f0d385058baf: Download complete[0m
+[0;32m    qemu: d429da37232e: Verifying Checksum[0m
+[0;32m    qemu: d429da37232e: Download complete[0m
+[0;32m    qemu: 4f4fb700ef54: Verifying Checksum[0m
+[0;32m    qemu: 4f4fb700ef54: Download complete[0m
+[0;32m    qemu: c08fb178fcf8: Verifying Checksum[0m
+[0;32m    qemu: c08fb178fcf8: Download complete[0m
+[0;32m    qemu: a30b5f3bcbdc: Verifying Checksum[0m
+[0;32m    qemu: a30b5f3bcbdc: Download complete[0m
+[0;32m    qemu: defc859ae4c9: Verifying Checksum[0m
+[0;32m    qemu: defc859ae4c9: Download complete[0m
+[0;32m    qemu: 8559a31e96f4: Pull complete[0m
+[0;32m    qemu: 62e60f3ef11e: Pull complete[0m
+[0;32m    qemu: 286adfd1ee25: Pull complete[0m
+[0;32m    qemu: 8973789a3a6b: Pull complete[0m
+[0;32m    qemu: 9b8d369425a7: Pull complete[0m
+[0;32m    qemu: 45bb12f30dbc: Pull complete[0m
+[0;32m    qemu: fc8b5612ca1c: Pull complete[0m
+[0;32m    qemu: 3e6954b9f53d: Pull complete[0m
+[0;32m    qemu: 60152d8c7e58: Pull complete[0m
+[0;32m    qemu: 4d8f983b9409: Pull complete[0m
+[0;32m    qemu: f0d385058baf: Pull complete[0m
+[0;32m    qemu: d429da37232e: Pull complete[0m
+[0;32m    qemu: c08fb178fcf8: Pull complete[0m
+[0;32m    qemu: a30b5f3bcbdc: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Pull complete[0m
+[0;32m    qemu: defc859ae4c9: Pull complete[0m
+[0;32m    qemu: Digest: sha256:6668bcf42ef0afb89d0ccd378905c761eab0f06919e74e178852b58b4bbb29c5[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/examples-bookinfo-productpage-v1:1.17.0[0m
+[0;32m    qemu: docker.io/istio/examples-bookinfo-productpage-v1:1.17.0[0m
+[0;32m    qemu: 1.17.0: Pulling from istio/examples-bookinfo-ratings-v1[0m
+[0;32m    qemu: 7d2977b12acb: Pulling fs layer[0m
+[0;32m    qemu: 23e9a36a6e2d: Pulling fs layer[0m
+[0;32m    qemu: a0b03ba934df: Pulling fs layer[0m
+[0;32m    qemu: 7472baebf944: Pulling fs layer[0m
+[0;32m    qemu: cbb6845c4283: Pulling fs layer[0m
+[0;32m    qemu: d6915d0a0cf7: Pulling fs layer[0m
+[0;32m    qemu: 941e1907f194: Pulling fs layer[0m
+[0;32m    qemu: fba6a1446564: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Pulling fs layer[0m
+[0;32m    qemu: fa9038cfcad0: Pulling fs layer[0m
+[0;32m    qemu: 7472baebf944: Waiting[0m
+[0;32m    qemu: cbb6845c4283: Waiting[0m
+[0;32m    qemu: d6915d0a0cf7: Waiting[0m
+[0;32m    qemu: 941e1907f194: Waiting[0m
+[0;32m    qemu: fba6a1446564: Waiting[0m
+[0;32m    qemu: 4f4fb700ef54: Waiting[0m
+[0;32m    qemu: fa9038cfcad0: Waiting[0m
+[0;32m    qemu: 23e9a36a6e2d: Verifying Checksum[0m
+[0;32m    qemu: 23e9a36a6e2d: Download complete[0m
+[0;32m    qemu: 7472baebf944: Verifying Checksum[0m
+[0;32m    qemu: 7472baebf944: Download complete[0m
+[0;32m    qemu: cbb6845c4283: Verifying Checksum[0m
+[0;32m    qemu: cbb6845c4283: Download complete[0m
+[0;32m    qemu: d6915d0a0cf7: Verifying Checksum[0m
+[0;32m    qemu: d6915d0a0cf7: Download complete[0m
+[0;32m    qemu: 941e1907f194: Verifying Checksum[0m
+[0;32m    qemu: 941e1907f194: Download complete[0m
+[0;32m    qemu: fba6a1446564: Verifying Checksum[0m
+[0;32m    qemu: fba6a1446564: Download complete[0m
+[0;32m    qemu: 4f4fb700ef54: Verifying Checksum[0m
+[0;32m    qemu: 4f4fb700ef54: Download complete[0m
+[0;32m    qemu: fa9038cfcad0: Verifying Checksum[0m
+[0;32m    qemu: fa9038cfcad0: Download complete[0m
+[0;32m    qemu: 7d2977b12acb: Verifying Checksum[0m
+[0;32m    qemu: 7d2977b12acb: Download complete[0m
+[0;32m    qemu: a0b03ba934df: Verifying Checksum[0m
+[0;32m    qemu: a0b03ba934df: Download complete[0m
+[0;32m    qemu: 7d2977b12acb: Pull complete[0m
+[0;32m    qemu: 23e9a36a6e2d: Pull complete[0m
+[0;32m    qemu: a0b03ba934df: Pull complete[0m
+[0;32m    qemu: 7472baebf944: Pull complete[0m
+[0;32m    qemu: cbb6845c4283: Pull complete[0m
+[0;32m    qemu: d6915d0a0cf7: Pull complete[0m
+[0;32m    qemu: 941e1907f194: Pull complete[0m
+[0;32m    qemu: fba6a1446564: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Pull complete[0m
+[0;32m    qemu: fa9038cfcad0: Pull complete[0m
+[0;32m    qemu: Digest: sha256:b6a6b88d35785c19f6dcb6acf055aa585511f2126bb0b5802f3107b7d37ead0b[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/examples-bookinfo-ratings-v1:1.17.0[0m
+[0;32m    qemu: docker.io/istio/examples-bookinfo-ratings-v1:1.17.0[0m
+[0;32m    qemu: 1.17.0: Pulling from istio/examples-bookinfo-reviews-v1[0m
+[0;32m    qemu: 3b65ec22a9e9: Pulling fs layer[0m
+[0;32m    qemu: 398d776e32fa: Pulling fs layer[0m
+[0;32m    qemu: 80c2eb6b2043: Pulling fs layer[0m
+[0;32m    qemu: 97bc1f3394e5: Pulling fs layer[0m
+[0;32m    qemu: b394c3033828: Pulling fs layer[0m
+[0;32m    qemu: 95b7a0ad16e7: Pulling fs layer[0m
+[0;32m    qemu: fd07db481353: Pulling fs layer[0m
+[0;32m    qemu: f311d12837ee: Pulling fs layer[0m
+[0;32m    qemu: 6b0c133b7495: Pulling fs layer[0m
+[0;32m    qemu: b65ce27836d4: Pulling fs layer[0m
+[0;32m    qemu: f1802e3409b7: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Pulling fs layer[0m
+[0;32m    qemu: 84425aab0ebb: Pulling fs layer[0m
+[0;32m    qemu: 97bc1f3394e5: Waiting[0m
+[0;32m    qemu: b394c3033828: Waiting[0m
+[0;32m    qemu: 95b7a0ad16e7: Waiting[0m
+[0;32m    qemu: fd07db481353: Waiting[0m
+[0;32m    qemu: f311d12837ee: Waiting[0m
+[0;32m    qemu: 6b0c133b7495: Waiting[0m
+[0;32m    qemu: b65ce27836d4: Waiting[0m
+[0;32m    qemu: f1802e3409b7: Waiting[0m
+[0;32m    qemu: 4f4fb700ef54: Waiting[0m
+[0;32m    qemu: 84425aab0ebb: Waiting[0m
+[0;32m    qemu: 398d776e32fa: Verifying Checksum[0m
+[0;32m    qemu: 398d776e32fa: Download complete[0m
+[0;32m    qemu: 3b65ec22a9e9: Verifying Checksum[0m
+[0;32m    qemu: 3b65ec22a9e9: Download complete[0m
+[0;32m    qemu: b394c3033828: Verifying Checksum[0m
+[0;32m    qemu: b394c3033828: Download complete[0m
+[0;32m    qemu: 95b7a0ad16e7: Verifying Checksum[0m
+[0;32m    qemu: 95b7a0ad16e7: Download complete[0m
+[0;32m    qemu: 97bc1f3394e5: Verifying Checksum[0m
+[0;32m    qemu: 97bc1f3394e5: Download complete[0m
+[0;32m    qemu: f311d12837ee: Verifying Checksum[0m
+[0;32m    qemu: f311d12837ee: Download complete[0m
+[0;32m    qemu: 6b0c133b7495: Verifying Checksum[0m
+[0;32m    qemu: 6b0c133b7495: Download complete[0m
+[0;32m    qemu: 3b65ec22a9e9: Pull complete[0m
+[0;32m    qemu: b65ce27836d4: Verifying Checksum[0m
+[0;32m    qemu: b65ce27836d4: Download complete[0m
+[0;32m    qemu: f1802e3409b7: Verifying Checksum[0m
+[0;32m    qemu: f1802e3409b7: Download complete[0m
+[0;32m    qemu: 4f4fb700ef54: Verifying Checksum[0m
+[0;32m    qemu: 4f4fb700ef54: Download complete[0m
+[0;32m    qemu: 84425aab0ebb: Verifying Checksum[0m
+[0;32m    qemu: 84425aab0ebb: Download complete[0m
+[0;32m    qemu: 80c2eb6b2043: Verifying Checksum[0m
+[0;32m    qemu: 80c2eb6b2043: Download complete[0m
+[0;32m    qemu: 398d776e32fa: Pull complete[0m
+[0;32m    qemu: 80c2eb6b2043: Pull complete[0m
+[0;32m    qemu: 97bc1f3394e5: Pull complete[0m
+[0;32m    qemu: b394c3033828: Pull complete[0m
+[0;32m    qemu: 95b7a0ad16e7: Pull complete[0m
+[0;32m    qemu: fd07db481353: Verifying Checksum[0m
+[0;32m    qemu: fd07db481353: Download complete[0m
+[0;32m    qemu: fd07db481353: Pull complete[0m
+[0;32m    qemu: f311d12837ee: Pull complete[0m
+[0;32m    qemu: 6b0c133b7495: Pull complete[0m
+[0;32m    qemu: b65ce27836d4: Pull complete[0m
+[0;32m    qemu: f1802e3409b7: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Pull complete[0m
+[0;32m    qemu: 84425aab0ebb: Pull complete[0m
+[0;32m    qemu: Digest: sha256:b8f16a765eea1e53aadf59146b3ffede9d2a869d6edf7d1729fb83d5146bbefd[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/examples-bookinfo-reviews-v1:1.17.0[0m
+[0;32m    qemu: docker.io/istio/examples-bookinfo-reviews-v1:1.17.0[0m
+[0;32m    qemu: 1.17.0: Pulling from istio/examples-bookinfo-reviews-v2[0m
+[0;32m    qemu: 3b65ec22a9e9: Already exists[0m
+[0;32m    qemu: 398d776e32fa: Already exists[0m
+[0;32m    qemu: 80c2eb6b2043: Already exists[0m
+[0;32m    qemu: 97bc1f3394e5: Already exists[0m
+[0;32m    qemu: b394c3033828: Already exists[0m
+[0;32m    qemu: 95b7a0ad16e7: Already exists[0m
+[0;32m    qemu: fd07db481353: Already exists[0m
+[0;32m    qemu: f311d12837ee: Already exists[0m
+[0;32m    qemu: 6b0c133b7495: Already exists[0m
+[0;32m    qemu: b65ce27836d4: Already exists[0m
+[0;32m    qemu: f1802e3409b7: Already exists[0m
+[0;32m    qemu: 4f4fb700ef54: Already exists[0m
+[0;32m    qemu: 4f4fb700ef54: Already exists[0m
+[0;32m    qemu: 84425aab0ebb: Already exists[0m
+[0;32m    qemu: Digest: sha256:72f25a55f0784c4f7122213e09454383f71d87e938acf4392ff6a2d1ea962284[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/examples-bookinfo-reviews-v2:1.17.0[0m
+[0;32m    qemu: docker.io/istio/examples-bookinfo-reviews-v2:1.17.0[0m
+[0;32m    qemu: 1.17.0: Pulling from istio/examples-bookinfo-reviews-v3[0m
+[0;32m    qemu: 3b65ec22a9e9: Already exists[0m
+[0;32m    qemu: 398d776e32fa: Already exists[0m
+[0;32m    qemu: 80c2eb6b2043: Already exists[0m
+[0;32m    qemu: 97bc1f3394e5: Already exists[0m
+[0;32m    qemu: b394c3033828: Already exists[0m
+[0;32m    qemu: 95b7a0ad16e7: Already exists[0m
+[0;32m    qemu: fd07db481353: Already exists[0m
+[0;32m    qemu: f311d12837ee: Already exists[0m
+[0;32m    qemu: 6b0c133b7495: Already exists[0m
+[0;32m    qemu: b65ce27836d4: Already exists[0m
+[0;32m    qemu: f1802e3409b7: Already exists[0m
+[0;32m    qemu: 4f4fb700ef54: Already exists[0m
+[0;32m    qemu: 4f4fb700ef54: Already exists[0m
+[0;32m    qemu: 84425aab0ebb: Already exists[0m
+[0;32m    qemu: Digest: sha256:8f92fc1b6592419d2f726192bd948e88a551e26be94803adf0bcb209053753b3[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/examples-bookinfo-reviews-v3:1.17.0[0m
+[0;32m    qemu: docker.io/istio/examples-bookinfo-reviews-v3:1.17.0[0m
+[0;32m    qemu: ======= step 3.4 download nginx images[0m
+[0;32m    qemu: 1.25.2: Pulling from library/nginx[0m
+[0;32m    qemu: 360eba32fa65: Pulling fs layer[0m
+[0;32m    qemu: c5903f3678a7: Pulling fs layer[0m
+[0;32m    qemu: 27e923fb52d3: Pulling fs layer[0m
+[0;32m    qemu: 72de7d1ce3a4: Pulling fs layer[0m
+[0;32m    qemu: 94f34d60e454: Pulling fs layer[0m
+[0;32m    qemu: e42dcfe1730b: Pulling fs layer[0m
+[0;32m    qemu: 907d1bb4e931: Pulling fs layer[0m
+[0;32m    qemu: 72de7d1ce3a4: Waiting[0m
+[0;32m    qemu: 94f34d60e454: Waiting[0m
+[0;32m    qemu: e42dcfe1730b: Waiting[0m
+[0;32m    qemu: 907d1bb4e931: Waiting[0m
+[0;32m    qemu: 27e923fb52d3: Verifying Checksum[0m
+[0;32m    qemu: 27e923fb52d3: Download complete[0m
+[0;32m    qemu: 72de7d1ce3a4: Verifying Checksum[0m
+[0;32m    qemu: 72de7d1ce3a4: Download complete[0m
+[0;32m    qemu: 94f34d60e454: Verifying Checksum[0m
+[0;32m    qemu: 94f34d60e454: Download complete[0m
+[0;32m    qemu: e42dcfe1730b: Verifying Checksum[0m
+[0;32m    qemu: e42dcfe1730b: Download complete[0m
+[0;32m    qemu: 907d1bb4e931: Verifying Checksum[0m
+[0;32m    qemu: 907d1bb4e931: Download complete[0m
+[0;32m    qemu: 360eba32fa65: Verifying Checksum[0m
+[0;32m    qemu: 360eba32fa65: Download complete[0m
+[0;32m    qemu: c5903f3678a7: Verifying Checksum[0m
+[0;32m    qemu: c5903f3678a7: Download complete[0m
+[0;32m    qemu: 360eba32fa65: Pull complete[0m
+[0;32m    qemu: c5903f3678a7: Pull complete[0m
+[0;32m    qemu: 27e923fb52d3: Pull complete[0m
+[0;32m    qemu: 72de7d1ce3a4: Pull complete[0m
+[0;32m    qemu: 94f34d60e454: Pull complete[0m
+[0;32m    qemu: e42dcfe1730b: Pull complete[0m
+[0;32m    qemu: 907d1bb4e931: Pull complete[0m
+[0;32m    qemu: Digest: sha256:6926dd802f40e5e7257fded83e0d8030039642e4e10c4a98a6478e9c6fe06153[0m
+[0;32m    qemu: Status: Downloaded newer image for nginx:1.25.2[0m
+[0;32m    qemu: docker.io/library/nginx:1.25.2[0m
+[0;32m    qemu: ======= step 3.5 download metallb images[0m
+[0;32m    qemu: 8.4.2: Pulling from frrouting/frr[0m
+[0;32m    qemu: 9621f1afde84: Pulling fs layer[0m
+[0;32m    qemu: d8fc5cc60e1c: Pulling fs layer[0m
+[0;32m    qemu: 95de44110d88: Pulling fs layer[0m
+[0;32m    qemu: 104cbf48e0f7: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Pulling fs layer[0m
+[0;32m    qemu: 7624e1e2cd5b: Pulling fs layer[0m
+[0;32m    qemu: b96e48c8eafa: Pulling fs layer[0m
+[0;32m    qemu: 4f4fb700ef54: Waiting[0m
+[0;32m    qemu: 7624e1e2cd5b: Waiting[0m
+[0;32m    qemu: b96e48c8eafa: Waiting[0m
+[0;32m    qemu: 104cbf48e0f7: Waiting[0m
+[0;32m    qemu: d8fc5cc60e1c: Verifying Checksum[0m
+[0;32m    qemu: d8fc5cc60e1c: Download complete[0m
+[0;32m    qemu: 9621f1afde84: Verifying Checksum[0m
+[0;32m    qemu: 9621f1afde84: Download complete[0m
+[0;32m    qemu: 9621f1afde84: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Verifying Checksum[0m
+[0;32m    qemu: 4f4fb700ef54: Download complete[0m
+[0;32m    qemu: d8fc5cc60e1c: Pull complete[0m
+[0;32m    qemu: 7624e1e2cd5b: Download complete[0m
+[0;32m    qemu: b96e48c8eafa: Verifying Checksum[0m
+[0;32m    qemu: b96e48c8eafa: Download complete[0m
+[0;32m    qemu: 95de44110d88: Verifying Checksum[0m
+[0;32m    qemu: 95de44110d88: Download complete[0m
+[0;32m    qemu: 95de44110d88: Pull complete[0m
+[0;32m    qemu: 104cbf48e0f7: Verifying Checksum[0m
+[0;32m    qemu: 104cbf48e0f7: Download complete[0m
+[0;32m    qemu: 104cbf48e0f7: Pull complete[0m
+[0;32m    qemu: 4f4fb700ef54: Pull complete[0m
+[0;32m    qemu: 7624e1e2cd5b: Pull complete[0m
+[0;32m    qemu: b96e48c8eafa: Pull complete[0m
+[0;32m    qemu: Digest: sha256:54f9a7b9e5436430dea61314169690d08f40342d2ac82406bb9463a53edf8d6f[0m
+[0;32m    qemu: Status: Downloaded newer image for quay.io/frrouting/frr:8.4.2[0m
+[0;32m    qemu: quay.io/frrouting/frr:8.4.2[0m
+[0;32m    qemu: v0.13.10: Pulling from metallb/controller[0m
+[0;32m    qemu: 8a49fdb3b6a5: Already exists[0m
+[0;32m    qemu: cc7310ee62f3: Pulling fs layer[0m
+[0;32m    qemu: 6ee5188195e9: Pulling fs layer[0m
+[0;32m    qemu: 6ee5188195e9: Verifying Checksum[0m
+[0;32m    qemu: 6ee5188195e9: Download complete[0m
+[0;32m    qemu: cc7310ee62f3: Verifying Checksum[0m
+[0;32m    qemu: cc7310ee62f3: Download complete[0m
+[0;32m    qemu: cc7310ee62f3: Pull complete[0m
+[0;32m    qemu: 6ee5188195e9: Pull complete[0m
+[0;32m    qemu: Digest: sha256:1b33357b3595468aac9d5b9115fc4d35fc475124551180956083294cdeeb94b6[0m
+[0;32m    qemu: Status: Downloaded newer image for quay.io/metallb/controller:v0.13.10[0m
+[0;32m    qemu: quay.io/metallb/controller:v0.13.10[0m
+[0;32m    qemu: v0.13.10: Pulling from metallb/speaker[0m
+[0;32m    qemu: 8a49fdb3b6a5: Already exists[0m
+[0;32m    qemu: 6dc43a2b3aa0: Pulling fs layer[0m
+[0;32m    qemu: 60c6f8e3c39b: Pulling fs layer[0m
+[0;32m    qemu: 826b3282d512: Pulling fs layer[0m
+[0;32m    qemu: edb242ad6266: Pulling fs layer[0m
+[0;32m    qemu: edb242ad6266: Waiting[0m
+[0;32m    qemu: 826b3282d512: Verifying Checksum[0m
+[0;32m    qemu: 826b3282d512: Download complete[0m
+[0;32m    qemu: edb242ad6266: Verifying Checksum[0m
+[0;32m    qemu: edb242ad6266: Download complete[0m
+[0;32m    qemu: 60c6f8e3c39b: Verifying Checksum[0m
+[0;32m    qemu: 60c6f8e3c39b: Download complete[0m
+[0;32m    qemu: 6dc43a2b3aa0: Verifying Checksum[0m
+[0;32m    qemu: 6dc43a2b3aa0: Download complete[0m
+[0;32m    qemu: 6dc43a2b3aa0: Pull complete[0m
+[0;32m    qemu: 60c6f8e3c39b: Pull complete[0m
+[0;32m    qemu: 826b3282d512: Pull complete[0m
+[0;32m    qemu: edb242ad6266: Pull complete[0m
+[0;32m    qemu: Digest: sha256:00406ccb1fa08d48cc0ed0b43db7b3cbc3ccc1c4da0e38fca648e64639b06c3c[0m
+[0;32m    qemu: Status: Downloaded newer image for quay.io/metallb/speaker:v0.13.10[0m
+[0;32m    qemu: quay.io/metallb/speaker:v0.13.10[0m
+[0;32m    qemu: ======= step 3.6 download others images[0m
+[0;32m    qemu: v3.26.1: Pulling from calico/kube-controllers[0m
+[0;32m    qemu: fe2ccd270eb7: Pulling fs layer[0m
+[0;32m    qemu: 5fcafcc9e60e: Pulling fs layer[0m
+[0;32m    qemu: 8152bb18c4b9: Pulling fs layer[0m
+[0;32m    qemu: c383daff5dcb: Pulling fs layer[0m
+[0;32m    qemu: 6e777fc9ae27: Pulling fs layer[0m
+[0;32m    qemu: 566290fdc43c: Pulling fs layer[0m
+[0;32m    qemu: 807b54c42901: Pulling fs layer[0m
+[0;32m    qemu: 26bd6f1dcca4: Pulling fs layer[0m
+[0;32m    qemu: c383daff5dcb: Waiting[0m
+[0;32m    qemu: 6e777fc9ae27: Waiting[0m
+[0;32m    qemu: 566290fdc43c: Waiting[0m
+[0;32m    qemu: 807b54c42901: Waiting[0m
+[0;32m    qemu: b9b2f2cb965a: Pulling fs layer[0m
+[0;32m    qemu: 96510a036d14: Pulling fs layer[0m
+[0;32m    qemu: 94d15eeac54c: Pulling fs layer[0m
+[0;32m    qemu: 70e5fa918535: Pulling fs layer[0m
+[0;32m    qemu: 58bd207ae111: Pulling fs layer[0m
+[0;32m    qemu: 5cd0c04b7525: Pulling fs layer[0m
+[0;32m    qemu: 26bd6f1dcca4: Waiting[0m
+[0;32m    qemu: b9b2f2cb965a: Waiting[0m
+[0;32m    qemu: 96510a036d14: Waiting[0m
+[0;32m    qemu: 94d15eeac54c: Waiting[0m
+[0;32m    qemu: 70e5fa918535: Waiting[0m
+[0;32m    qemu: 58bd207ae111: Waiting[0m
+[0;32m    qemu: 5cd0c04b7525: Waiting[0m
+[0;32m    qemu: fe2ccd270eb7: Verifying Checksum[0m
+[0;32m    qemu: fe2ccd270eb7: Download complete[0m
+[0;32m    qemu: 5fcafcc9e60e: Verifying Checksum[0m
+[0;32m    qemu: 5fcafcc9e60e: Download complete[0m
+[0;32m    qemu: 8152bb18c4b9: Verifying Checksum[0m
+[0;32m    qemu: 8152bb18c4b9: Download complete[0m
+[0;32m    qemu: fe2ccd270eb7: Pull complete[0m
+[0;32m    qemu: 5fcafcc9e60e: Pull complete[0m
+[0;32m    qemu: 8152bb18c4b9: Pull complete[0m
+[0;32m    qemu: c383daff5dcb: Verifying Checksum[0m
+[0;32m    qemu: c383daff5dcb: Download complete[0m
+[0;32m    qemu: c383daff5dcb: Pull complete[0m
+[0;32m    qemu: 6e777fc9ae27: Verifying Checksum[0m
+[0;32m    qemu: 6e777fc9ae27: Download complete[0m
+[0;32m    qemu: 6e777fc9ae27: Pull complete[0m
+[0;32m    qemu: 566290fdc43c: Verifying Checksum[0m
+[0;32m    qemu: 566290fdc43c: Download complete[0m
+[0;32m    qemu: 566290fdc43c: Pull complete[0m
+[0;32m    qemu: 807b54c42901: Verifying Checksum[0m
+[0;32m    qemu: 807b54c42901: Download complete[0m
+[0;32m    qemu: 807b54c42901: Pull complete[0m
+[0;32m    qemu: b9b2f2cb965a: Verifying Checksum[0m
+[0;32m    qemu: b9b2f2cb965a: Download complete[0m
+[0;32m    qemu: 26bd6f1dcca4: Verifying Checksum[0m
+[0;32m    qemu: 26bd6f1dcca4: Download complete[0m
+[0;32m    qemu: 26bd6f1dcca4: Pull complete[0m
+[0;32m    qemu: b9b2f2cb965a: Pull complete[0m
+[0;32m    qemu: 96510a036d14: Verifying Checksum[0m
+[0;32m    qemu: 96510a036d14: Download complete[0m
+[0;32m    qemu: 96510a036d14: Pull complete[0m
+[0;32m    qemu: 94d15eeac54c: Verifying Checksum[0m
+[0;32m    qemu: 94d15eeac54c: Download complete[0m
+[0;32m    qemu: 94d15eeac54c: Pull complete[0m
+[0;32m    qemu: 70e5fa918535: Verifying Checksum[0m
+[0;32m    qemu: 70e5fa918535: Download complete[0m
+[0;32m    qemu: 70e5fa918535: Pull complete[0m
+[0;32m    qemu: 5cd0c04b7525: Verifying Checksum[0m
+[0;32m    qemu: 5cd0c04b7525: Download complete[0m
+[0;32m    qemu: 58bd207ae111: Verifying Checksum[0m
+[0;32m    qemu: 58bd207ae111: Download complete[0m
+[0;32m    qemu: 58bd207ae111: Pull complete[0m
+[0;32m    qemu: 5cd0c04b7525: Pull complete[0m
+[0;32m    qemu: Digest: sha256:01ce29ea8f2b34b6cef904f526baed98db4c0581102f194e36f2cd97943f77aa[0m
+[0;32m    qemu: Status: Downloaded newer image for calico/kube-controllers:v3.26.1[0m
+[0;32m    qemu: docker.io/calico/kube-controllers:v3.26.1[0m
+[0;32m    qemu: v3.26.1: Pulling from calico/node[0m
+[0;32m    qemu: c998069b4a7c: Pulling fs layer[0m
+[0;32m    qemu: 6cf92fa5251d: Pulling fs layer[0m
+[0;32m    qemu: 6cf92fa5251d: Verifying Checksum[0m
+[0;32m    qemu: 6cf92fa5251d: Download complete[0m
+[0;32m    qemu: c998069b4a7c: Verifying Checksum[0m
+[0;32m    qemu: c998069b4a7c: Download complete[0m
+[0;32m    qemu: c998069b4a7c: Pull complete[0m
+[0;32m    qemu: 6cf92fa5251d: Pull complete[0m
+[0;32m    qemu: Digest: sha256:8e34517775f319917a0be516ed3a373dbfca650d1ee8e72158087c24356f47fb[0m
+[0;32m    qemu: Status: Downloaded newer image for calico/node:v3.26.1[0m
+[0;32m    qemu: docker.io/calico/node:v3.26.1[0m
+[0;32m    qemu: 2.7.3: Pulling from grafana/loki[0m
+[0;32m    qemu: Digest: sha256:0c86eba2dee75220d99b604503a91bc07532d238454fcfd712ec60d9d8a43c5d[0m
+[0;32m    qemu: Status: Image is up to date for grafana/loki:2.7.3[0m
+[0;32m    qemu: docker.io/grafana/loki:2.7.3[0m
+[0;32m    qemu: 1.18.2: Pulling from istio/pilot[0m
+[0;32m    qemu: db73f72db882: Already exists[0m
+[0;32m    qemu: 01836c8c7311: Already exists[0m
+[0;32m    qemu: ae7aecfd342a: Already exists[0m
+[0;32m    qemu: 146fa79a021b: Pulling fs layer[0m
+[0;32m    qemu: 99dae7562da9: Pulling fs layer[0m
+[0;32m    qemu: b45c880e9b8f: Pulling fs layer[0m
+[0;32m    qemu: 99dae7562da9: Download complete[0m
+[0;32m    qemu: b45c880e9b8f: Verifying Checksum[0m
+[0;32m    qemu: b45c880e9b8f: Download complete[0m
+[0;32m    qemu: 146fa79a021b: Verifying Checksum[0m
+[0;32m    qemu: 146fa79a021b: Download complete[0m
+[0;32m    qemu: 146fa79a021b: Pull complete[0m
+[0;32m    qemu: 99dae7562da9: Pull complete[0m
+[0;32m    qemu: b45c880e9b8f: Pull complete[0m
+[0;32m    qemu: Digest: sha256:30328759bd2ef069ac5ccbeadc7b42ab51a47e4c6423c66987eda43ce4a3c16d[0m
+[0;32m    qemu: Status: Downloaded newer image for istio/pilot:1.18.2[0m
+[0;32m    qemu: docker.io/istio/pilot:1.18.2[0m
+[0;32m    qemu: 1.35: Pulling from jaegertracing/all-in-one[0m
+[0;32m    qemu: 8663204ce13b: Pulling fs layer[0m
+[0;32m    qemu: 51afacc52de6: Pulling fs layer[0m
+[0;32m    qemu: 074500c814b1: Pulling fs layer[0m
+[0;32m    qemu: b1102ef7fe99: Pulling fs layer[0m
+[0;32m    qemu: 08b1e0512454: Pulling fs layer[0m
+[0;32m    qemu: b1102ef7fe99: Waiting[0m
+[0;32m    qemu: 08b1e0512454: Waiting[0m
+[0;32m    qemu: 51afacc52de6: Verifying Checksum[0m
+[0;32m    qemu: 51afacc52de6: Download complete[0m
+[0;32m    qemu: 074500c814b1: Verifying Checksum[0m
+[0;32m    qemu: 074500c814b1: Download complete[0m
+[0;32m    qemu: 8663204ce13b: Verifying Checksum[0m
+[0;32m    qemu: 8663204ce13b: Download complete[0m
+[0;32m    qemu: 08b1e0512454: Verifying Checksum[0m
+[0;32m    qemu: 08b1e0512454: Download complete[0m
+[0;32m    qemu: 8663204ce13b: Pull complete[0m
+[0;32m    qemu: 51afacc52de6: Pull complete[0m
+[0;32m    qemu: 074500c814b1: Pull complete[0m
+[0;32m    qemu: b1102ef7fe99: Verifying Checksum[0m
+[0;32m    qemu: b1102ef7fe99: Download complete[0m
+[0;32m    qemu: b1102ef7fe99: Pull complete[0m
+[0;32m    qemu: 08b1e0512454: Pull complete[0m
+[0;32m    qemu: Digest: sha256:0e0c081fd0cf40e9028533d386177fc2492e4e839e1151237e847b2c9486715b[0m
+[0;32m    qemu: Status: Downloaded newer image for jaegertracing/all-in-one:1.35[0m
+[0;32m    qemu: docker.io/jaegertracing/all-in-one:1.35[0m
+[0;32m    qemu: 9.0.1: Pulling from grafana/grafana[0m
+[0;32m    qemu: df9b9388f04a: Pulling fs layer[0m
+[0;32m    qemu: 8a2d7b6c89bf: Pulling fs layer[0m
+[0;32m    qemu: 290368f4e636: Pulling fs layer[0m
+[0;32m    qemu: 34f09fc247ac: Pulling fs layer[0m
+[0;32m    qemu: f58a7c0e6b43: Pulling fs layer[0m
+[0;32m    qemu: a5e39be1ca05: Pulling fs layer[0m
+[0;32m    qemu: 9310026c8fc6: Pulling fs layer[0m
+[0;32m    qemu: f7053e076105: Pulling fs layer[0m
+[0;32m    qemu: dd166239212b: Pulling fs layer[0m
+[0;32m    qemu: 34f09fc247ac: Waiting[0m
+[0;32m    qemu: f58a7c0e6b43: Waiting[0m
+[0;32m    qemu: a5e39be1ca05: Waiting[0m
+[0;32m    qemu: 9310026c8fc6: Waiting[0m
+[0;32m    qemu: f7053e076105: Waiting[0m
+[0;32m    qemu: dd166239212b: Waiting[0m
+[0;32m    qemu: 8a2d7b6c89bf: Verifying Checksum[0m
+[0;32m    qemu: 8a2d7b6c89bf: Download complete[0m
+[0;32m    qemu: 290368f4e636: Verifying Checksum[0m
+[0;32m    qemu: 290368f4e636: Download complete[0m
+[0;32m    qemu: 34f09fc247ac: Verifying Checksum[0m
+[0;32m    qemu: 34f09fc247ac: Download complete[0m
+[0;32m    qemu: df9b9388f04a: Verifying Checksum[0m
+[0;32m    qemu: df9b9388f04a: Download complete[0m
+[0;32m    qemu: 9310026c8fc6: Verifying Checksum[0m
+[0;32m    qemu: 9310026c8fc6: Download complete[0m
+[0;32m    qemu: df9b9388f04a: Pull complete[0m
+[0;32m    qemu: 8a2d7b6c89bf: Pull complete[0m
+[0;32m    qemu: f7053e076105: Verifying Checksum[0m
+[0;32m    qemu: f7053e076105: Download complete[0m
+[0;32m    qemu: dd166239212b: Verifying Checksum[0m
+[0;32m    qemu: dd166239212b: Download complete[0m
+[0;32m    qemu: f58a7c0e6b43: Verifying Checksum[0m
+[0;32m    qemu: f58a7c0e6b43: Download complete[0m
+[0;32m    qemu: 290368f4e636: Pull complete[0m
+[0;32m    qemu: 34f09fc247ac: Pull complete[0m
+[0;32m    qemu: f58a7c0e6b43: Pull complete[0m
+[0;32m    qemu: a5e39be1ca05: Verifying Checksum[0m
+[0;32m    qemu: a5e39be1ca05: Download complete[0m
+[0;32m    qemu: a5e39be1ca05: Pull complete[0m
+[0;32m    qemu: 9310026c8fc6: Pull complete[0m
+[0;32m    qemu: f7053e076105: Pull complete[0m
+[0;32m    qemu: dd166239212b: Pull complete[0m
+[0;32m    qemu: Digest: sha256:a738d07447840fb8ece043fc54438a8d75922013f8d922d856fadd29f9e06c2e[0m
+[0;32m    qemu: Status: Downloaded newer image for grafana/grafana:9.0.1[0m
+[0;32m    qemu: docker.io/grafana/grafana:9.0.1[0m
+[0;32m    qemu: v0.8.0: Pulling from jimmidyson/configmap-reload[0m
+[0;32m    qemu: f5b7ce95afea: Pulling fs layer[0m
+[0;32m    qemu: 12ac120590f7: Pulling fs layer[0m
+[0;32m    qemu: f5b7ce95afea: Verifying Checksum[0m
+[0;32m    qemu: f5b7ce95afea: Download complete[0m
+[0;32m    qemu: f5b7ce95afea: Pull complete[0m
+[0;32m    qemu: 12ac120590f7: Verifying Checksum[0m
+[0;32m    qemu: 12ac120590f7: Download complete[0m
+[0;32m    qemu: 12ac120590f7: Pull complete[0m
+[0;32m    qemu: Digest: sha256:5af9d3041d12a3e63f115125f89b66d2ba981fe82e64302ac370c5496055059c[0m
+[0;32m    qemu: Status: Downloaded newer image for jimmidyson/configmap-reload:v0.8.0[0m
+[0;32m    qemu: docker.io/jimmidyson/configmap-reload:v0.8.0[0m
+[0;32m    qemu: v2.41.0: Pulling from prom/prometheus[0m
+[0;32m    qemu: b08a0a826235: Pulling fs layer[0m
+[0;32m    qemu: d71d159599c3: Pulling fs layer[0m
+[0;32m    qemu: 5cfc4241bcf3: Pulling fs layer[0m
+[0;32m    qemu: 323993d60cf3: Pulling fs layer[0m
+[0;32m    qemu: 5149b9087ec2: Pulling fs layer[0m
+[0;32m    qemu: 1ab8bd4604d6: Pulling fs layer[0m
+[0;32m    qemu: a557f5496ae7: Pulling fs layer[0m
+[0;32m    qemu: 38ab81887e49: Pulling fs layer[0m
+[0;32m    qemu: 323993d60cf3: Waiting[0m
+[0;32m    qemu: 5149b9087ec2: Waiting[0m
+[0;32m    qemu: 1ab8bd4604d6: Waiting[0m
+[0;32m    qemu: a557f5496ae7: Waiting[0m
+[0;32m    qemu: fcbfb0de0d6e: Pulling fs layer[0m
+[0;32m    qemu: 99763d8da7cd: Pulling fs layer[0m
+[0;32m    qemu: 6db2d9658596: Pulling fs layer[0m
+[0;32m    qemu: 209878a685e3: Pulling fs layer[0m
+[0;32m    qemu: 38ab81887e49: Waiting[0m
+[0;32m    qemu: fcbfb0de0d6e: Waiting[0m
+[0;32m    qemu: 99763d8da7cd: Waiting[0m
+[0;32m    qemu: 6db2d9658596: Waiting[0m
+[0;32m    qemu: 209878a685e3: Waiting[0m
+[0;32m    qemu: d71d159599c3: Verifying Checksum[0m
+[0;32m    qemu: d71d159599c3: Download complete[0m
+[0;32m    qemu: b08a0a826235: Verifying Checksum[0m
+[0;32m    qemu: b08a0a826235: Download complete[0m
+[0;32m    qemu: b08a0a826235: Pull complete[0m
+[0;32m    qemu: 5149b9087ec2: Verifying Checksum[0m
+[0;32m    qemu: 5149b9087ec2: Download complete[0m
+[0;32m    qemu: d71d159599c3: Pull complete[0m
+[0;32m    qemu: 1ab8bd4604d6: Verifying Checksum[0m
+[0;32m    qemu: 1ab8bd4604d6: Download complete[0m
+[0;32m    qemu: a557f5496ae7: Verifying Checksum[0m
+[0;32m    qemu: a557f5496ae7: Download complete[0m
+[0;32m    qemu: 38ab81887e49: Verifying Checksum[0m
+[0;32m    qemu: 38ab81887e49: Download complete[0m
+[0;32m    qemu: fcbfb0de0d6e: Verifying Checksum[0m
+[0;32m    qemu: fcbfb0de0d6e: Download complete[0m
+[0;32m    qemu: 99763d8da7cd: Verifying Checksum[0m
+[0;32m    qemu: 99763d8da7cd: Download complete[0m
+[0;32m    qemu: 6db2d9658596: Verifying Checksum[0m
+[0;32m    qemu: 6db2d9658596: Download complete[0m
+[0;32m    qemu: 209878a685e3: Verifying Checksum[0m
+[0;32m    qemu: 209878a685e3: Download complete[0m
+[0;32m    qemu: 5cfc4241bcf3: Verifying Checksum[0m
+[0;32m    qemu: 5cfc4241bcf3: Download complete[0m
+[0;32m    qemu: 323993d60cf3: Verifying Checksum[0m
+[0;32m    qemu: 323993d60cf3: Download complete[0m
+[0;32m    qemu: 5cfc4241bcf3: Pull complete[0m
+[0;32m    qemu: 323993d60cf3: Pull complete[0m
+[0;32m    qemu: 5149b9087ec2: Pull complete[0m
+[0;32m    qemu: 1ab8bd4604d6: Pull complete[0m
+[0;32m    qemu: a557f5496ae7: Pull complete[0m
+[0;32m    qemu: 38ab81887e49: Pull complete[0m
+[0;32m    qemu: fcbfb0de0d6e: Pull complete[0m
+[0;32m    qemu: 99763d8da7cd: Pull complete[0m
+[0;32m    qemu: 6db2d9658596: Pull complete[0m
+[0;32m    qemu: 209878a685e3: Pull complete[0m
+[0;32m    qemu: Digest: sha256:1a3e9a878e50cd339ae7cf5718fda08381dda2d4ccd28e94bbaa3190d1a566c2[0m
+[0;32m    qemu: Status: Downloaded newer image for prom/prometheus:v2.41.0[0m
+[0;32m    qemu: docker.io/prom/prometheus:v2.41.0[0m
+[0;32m    qemu: v1.67: Pulling from kiali/kiali[0m
+[0;32m    qemu: 17aa49b9a870: Pulling fs layer[0m
+[0;32m    qemu: 99b0da71631b: Pulling fs layer[0m
+[0;32m    qemu: 153fd27290ec: Pulling fs layer[0m
+[0;32m    qemu: 1f62aff40ee0: Pulling fs layer[0m
+[0;32m    qemu: c432025e3695: Pulling fs layer[0m
+[0;32m    qemu: 2ee1b0d830b3: Pulling fs layer[0m
+[0;32m    qemu: 0e100b9723b6: Pulling fs layer[0m
+[0;32m    qemu: def842d15727: Pulling fs layer[0m
+[0;32m    qemu: 1f62aff40ee0: Waiting[0m
+[0;32m    qemu: c432025e3695: Waiting[0m
+[0;32m    qemu: 2ee1b0d830b3: Waiting[0m
+[0;32m    qemu: 0e100b9723b6: Waiting[0m
+[0;32m    qemu: def842d15727: Waiting[0m
+[0;32m    qemu: 153fd27290ec: Verifying Checksum[0m
+[0;32m    qemu: 153fd27290ec: Download complete[0m
+[0;32m    qemu: 99b0da71631b: Verifying Checksum[0m
+[0;32m    qemu: 99b0da71631b: Download complete[0m
+[0;32m    qemu: c432025e3695: Verifying Checksum[0m
+[0;32m    qemu: c432025e3695: Download complete[0m
+[0;32m    qemu: 1f62aff40ee0: Verifying Checksum[0m
+[0;32m    qemu: 1f62aff40ee0: Download complete[0m
+[0;32m    qemu: 2ee1b0d830b3: Verifying Checksum[0m
+[0;32m    qemu: 2ee1b0d830b3: Download complete[0m
+[0;32m    qemu: 17aa49b9a870: Verifying Checksum[0m
+[0;32m    qemu: 17aa49b9a870: Download complete[0m
+[0;32m    qemu: def842d15727: Verifying Checksum[0m
+[0;32m    qemu: def842d15727: Download complete[0m
+[0;32m    qemu: 17aa49b9a870: Pull complete[0m
+[0;32m    qemu: 99b0da71631b: Pull complete[0m
+[0;32m    qemu: 153fd27290ec: Pull complete[0m
+[0;32m    qemu: 1f62aff40ee0: Pull complete[0m
+[0;32m    qemu: c432025e3695: Pull complete[0m
+[0;32m    qemu: 2ee1b0d830b3: Pull complete[0m
+[0;32m    qemu: 0e100b9723b6: Download complete[0m
+[0;32m    qemu: 0e100b9723b6: Pull complete[0m
+[0;32m    qemu: def842d15727: Pull complete[0m
+[0;32m    qemu: Digest: sha256:fb29185a1ac707b64c0f3bbe516ebee861b750ef5fb53c8df52e884dc3ae7c06[0m
+[0;32m    qemu: Status: Downloaded newer image for quay.io/kiali/kiali:v1.67[0m
+[0;32m    qemu: quay.io/kiali/kiali:v1.67[0m
+[0;32m    qemu: ======= step 3. end[0m
+[1;32m==> qemu: Provisioning with shell script: /tmp/packer-shell3595819366[0m
+[0;32m    qemu: ======= step 4. clean[0m
+[0;32m    qemu: /: 2.8 GiB (2953756672 bytes) trimmed[0m
+[1;32m==> qemu: Halting the virtual machine...[0m
+[1;32m==> qemu: Converting hard drive...[0m
+[1;32m==> qemu: Error getting file lock for conversion; retrying...[0m
+[1;32mBuild 'qemu' finished after 1 hour 41 minutes.[0m
+
+==> Wait completed after 1 hour 41 minutes
+
+==> Builds finished. The artifacts of successful builds are:
+--> qemu: VM files in directory: output-qemu
